@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PENGATURAN SEO (Agar mudah terindeks Google) -->
+    <title>Alat Pengubah Gaya Tulisan & Format Teks Online Gratis</title>
+    <meta name="description" content="Website gratis untuk mengubah teks secara instan: jadi huruf besar, huruf kecil, format judul, atau teks estetik. Cepat, mudah, dan tanpa instalasi!">
+    <meta name="keywords" content="pengubah teks, text changer, ubah huruf besar, huruf kecil, text generator online, alat format teks">
+    
+    <!-- Tailwind CSS untuk Desain Modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Kotak Utama Aplikasi -->
+    <div class="bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-3xl shadow-2xl w-full max-w-xl border border-white/20">
+        
+        <!-- Header Judul -->
+        <div class="text-center mb-6">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">✨ TextMaster Pro</h1>
+            <p class="text-slate-500 text-sm mt-1">Ubah gaya tulisanmu dalam satu klik, langsung salin dan pakai!</p>
+        </div>
+
+        <!-- Kotak Input Teks -->
+        <div class="mb-4">
+            <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Masukkan Teks Kamu:</label>
+            <textarea id="inputText" rows="4" oninput="hitungKarakter()" class="w-full p-3.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-600 focus:outline-none text-slate-800 placeholder-slate-400 text-sm transition shadow-sm" placeholder="Ketik atau tempel teks di sini..."></textarea>
+            <!-- Indikator Jumlah Karakter & Kata -->
+            <div class="flex justify-between text-xs text-slate-400 mt-1 px-1">
+                <span id="jumlahKata">0 Kata</span>
+                <span id="jumlahKarakter">0 Karakter</span>
+            </div>
+        </div>
+
+        <!-- Tombol-tombol Pilihan Fungsi -->
+        <div class="grid grid-cols-2 gap-2.5 mb-5">
+            <button onclick="prosesTeks('kapital')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5">
+                🔠 SEMUA KAPITAL
+            </button>
+            <button onclick="prosesTeks('kecil')" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5">
+                🔡 semua kecil
+            </button>
+            <button onclick="prosesTeks('judul')" class="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5">
+                 Capitalize Each
+            </button>
+            <button onclick="prosesTeks('estetik')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-3 rounded-xl text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-1.5">
+                ✨ Gaya Estetik
+            </button>
+        </div>
+
+        <!-- Kotak Hasil Output -->
+        <div class="mb-2">
+            <div class="flex justify-between items-center mb-1">
+                <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Hasil Output:</label>
+                <!-- Tombol Salin / Copy -->
+                <button onclick="salinTeks()" id="btnSalin" class="text-xs text-indigo-600 hover:text-indigo-800 font-semibold flex items-center gap-1 bg-indigo-50 px-2.5 py-1 rounded-lg transition">
+                    📋 Salin Teks
+                </button>
+            </div>
+            <div id="outputResult" class="w-full p-3.5 bg-slate-100 border border-slate-200 rounded-xl text-slate-800 text-sm min-h-[90px] max-h-[150px] overflow-y-auto break-words select-all">
+                Hasilnya akan muncul di sini...
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Kecil -->
+    <p class="text-slate-400 text-xs mt-6 text-center">Dibuat dengan ❤️ menggunakan GitHub & Vercel</p>
+
+    <!-- Skrip Logika Aplikasi -->
+    <script>
+        function hitungKarakter() {
+            let teks = document.getElementById('inputText').value;
+            let jumlahKarakter = teks.length;
+            let jumlahKata = teks.trim() === '' ? 0 : teks.trim().split(/\s+/).length;
+            
+            document.getElementById('jumlahKarakter').innerText = jumlahKarakter + " Karakter";
+            document.getElementById('jumlahKata').innerText = jumlahKata + " Kata";
+        }
+
+        function prosesTeks(jenis) {
+            let teks = document.getElementById('inputText').value;
+            let hasilDiv = document.getElementById('outputResult');
+
+            if (!teks.trim()) {
+                hasilDiv.innerText = "⚠️ Masukkan teksnya terlebih dahulu di kolom atas!";
+                return;
+            }
+
+            if (jenis === 'kapital') {
+                hasilDiv.innerText = teks.toUpperCase();
+            } else if (jenis === 'kecil') {
+                hasilDiv.innerText = teks.toLowerCase();
+            } else if (jenis === 'judul') {
+                let kata = teks.toLowerCase().split(" ");
+                for (let i = 0; i < kata.length; i++) {
+                    kata[i] = kata[i].charAt(0).toUpperCase() + kata[i].slice(1);
+                }
+                hasilDiv.innerText = kata.join(" ");
+            } else if (jenis === 'estetik') {
+                // Memberi jarak spasi antar huruf ala teks estetik
+                hasilDiv.innerText = teks.split("").join("   ");
+            }
+        }
+
+        function salinTeks() {
+            let teksHasil = document.getElementById('outputResult').innerText;
+            if (teksHasil.includes("Hasilnya akan muncul") || teksHasil.includes("⚠️")) {
+                alert("Belum ada hasil yang bisa disalin!");
+                return;
+            }
+            
+            navigator.clipboard.writeText(teksHasil);
+            let btn = document.getElementById('btnSalin');
+            btn.innerText = "✅ Berhasil Disalin!";
+            setTimeout(() => {
+                btn.innerText = "📋 Salin Teks";
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
