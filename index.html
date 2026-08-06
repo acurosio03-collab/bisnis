@@ -11,7 +11,14 @@
     <!-- Header / Navigasi Atas -->
     <header class="sticky top-0 z-50 bg-red-950/90 backdrop-blur border-b border-red-900/50 px-6 py-4 flex justify-between items-center shadow-lg">
         <h1 class="text-xl font-black tracking-wider text-red-400 drop-shadow">☕ PAPER & SIP</h1>
-        <a href="#kontak" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold transition shadow-md shadow-red-900/50">Pesan Menu</a>
+        <div class="flex items-center space-x-3">
+            <a href="admin.html" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 px-3 py-2 rounded-xl text-xs font-bold transition border border-zinc-700">
+                🔐 Login Admin
+            </a>
+            <a href="#pesan" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold transition shadow-md shadow-red-900/50">
+                Pesan Online
+            </a>
+        </div>
     </header>
 
     <!-- BAGIAN UTAMA: Video Sambutan dengan Teks di Atasnya -->
@@ -33,6 +40,45 @@
                 <source src="testi.mp4" type="video/mp4">
                 Browser Anda tidak mendukung pemutaran video.
             </video>
+        </div>
+    </section>
+
+    <!-- BAGIAN PEMESANAN ONLINE (FORM INTERAKTIF) -->
+    <section id="pesan" class="px-6 py-12 max-w-2xl mx-auto border-t border-red-900/30">
+        <div class="bg-zinc-900/80 border border-red-900/40 p-6 md:p-8 rounded-3xl shadow-xl">
+            <h3 class="text-2xl font-black text-white text-center mb-2">🛒 Form Pemesanan Online</h3>
+            <p class="text-zinc-400 text-xs text-center mb-6">Pilih menu favoritmu, kirim pesanan langsung via WhatsApp.</p>
+            
+            <form onsubmit="kirimPesanan(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Nama Pemesan</label>
+                    <input type="text" id="namaPemesan" required class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Masukkan nama Anda...">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Pilih Menu</label>
+                    <select id="pilihanMenu" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500">
+                        <option value="Butter Croissant (Rp 22.000)">Butter Croissant - Rp 22.000</option>
+                        <option value="Caffè Latte (Rp 28.000)">Caffè Latte - Rp 28.000</option>
+                        <option value="Almond Croissant (Rp 30.000)">Almond Croissant - Rp 30.000</option>
+                        <option value="Espresso (Rp 20.000)">Espresso - Rp 20.000</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Jumlah Pesanan</label>
+                    <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Catatan Tambahan (Opsional)</label>
+                    <textarea id="catatanPesanan" rows="3" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: Jangan terlalu manis, atau minta kursi di area non-smoking..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-red-900/50 text-sm">
+                    Kirim Pesanan ke WhatsApp 💬
+                </button>
+            </form>
         </div>
     </section>
 
@@ -67,7 +113,6 @@
     <section id="kontak" class="px-6 py-16 max-w-4xl mx-auto text-center border-t border-red-900/30">
         <h3 class="text-2xl font-bold mb-3 text-white">📍 Kunjungi Outlet PAPER & SIP</h3>
         <p class="text-zinc-400 mb-6 text-sm">Jl. Braga No. 45, Kota Bandung<br>Buka Setiap Hari: 08.00 - 23.00 WIB</p>
-        <!-- Tombol WhatsApp dengan Nomor Baru -->
         <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-red-600 hover:bg-red-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-lg shadow-red-900/60">
             💬 Hubungi Kami via WhatsApp
         </a>
@@ -78,6 +123,23 @@
         <p>PAPER & SIP. All rights reserved.</p>
         <p class="mt-1 text-zinc-600">Solusi Web Profesional untuk UMKM Indonesia.</p>
     </footer>
+
+    <!-- Script Pengiriman Pesanan WhatsApp -->
+    <script>
+        function kirimPesanan(e) {
+            e.preventDefault();
+            const nama = document.getElementById('namaPemesan').value;
+            const menu = document.getElementById('pilihanMenu').value;
+            const jumlah = document.getElementById('jumlahPesanan').value;
+            const catatan = document.getElementById('catatanPesanan').value || 'Tidak ada catatan';
+
+            const nomorWa = '6283874795123';
+            const pesan = `Halo Paper & Sip, saya ingin memesan:\n\n*Nama:* ${nama}\n*Menu:* ${menu}\n*Jumlah:* ${jumlah}\n*Catatan:* ${catatan}`;
+            
+            const urlWa = `https://wa.me/${nomorWa}?text=${encodeURIComponent(pesan)}`;
+            window.open(urlWa, '_blank');
+        }
+    </script>
 
 </body>
 </html>
