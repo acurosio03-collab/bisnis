@@ -168,12 +168,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="space-y-2">
                         <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Pilihan Artisan Menu</label>
-                        <select id="pilihanMenu" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
-                            <option value="Butter Croissant (Rp 22.000)">Butter Croissant - Rp 22.000</option>
-                            <option value="Caffè Latte (Rp 28.000)">Caffè Latte - Rp 28.000</option>
-                            <option value="Almond Croissant (Rp 30.000)">Almond Croissant - Rp 30.000</option>
-                            <option value="Espresso (Rp 20.000)">Espresso - Rp 20.000</option>
-                        </select>
+                        <select id="pilihanMenu" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner"></select>
                     </div>
                     <div class="space-y-2">
                         <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Kuantitas</label>
@@ -234,7 +229,52 @@
         <p>&copy; 2026 PAPER & SIP. All Rights Reserved. Crafted for High-End Experience.</p>
     </footer>
 
-    <!-- Script Pengiriman Pesanan -->
+    <!-- Script Menu Dinamis & Pengiriman Pesanan -->
+    <script>
+        const KEY_PRODUK = 'daftarProduk';
+
+        function seedProdukJikaKosong() {
+            const existing = localStorage.getItem(KEY_PRODUK);
+            if (!existing) {
+                const defaultProduk = [
+                    { id: 'p_default_1', name: 'Butter Croissant', price: 22000 },
+                    { id: 'p_default_2', name: 'Caffè Latte', price: 28000 },
+                    { id: 'p_default_3', name: 'Almond Croissant', price: 30000 },
+                    { id: 'p_default_4', name: 'Espresso', price: 20000 }
+                ];
+                localStorage.setItem(KEY_PRODUK, JSON.stringify(defaultProduk));
+            }
+        }
+
+        function formatRupiah(angka) {
+            return 'Rp ' + Number(angka).toLocaleString('id-ID');
+        }
+
+        function muatMenu() {
+            seedProdukJikaKosong();
+            const produk = JSON.parse(localStorage.getItem(KEY_PRODUK)) || [];
+            const select = document.getElementById('pilihanMenu');
+            select.innerHTML = '';
+
+            if (produk.length === 0) {
+                const opt = document.createElement('option');
+                opt.textContent = 'Menu belum tersedia';
+                opt.disabled = true;
+                select.appendChild(opt);
+                return;
+            }
+
+            produk.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = `${item.name} (${formatRupiah(item.price)})`;
+                opt.textContent = `${item.name} - ${formatRupiah(item.price)}`;
+                select.appendChild(opt);
+            });
+        }
+
+        muatMenu();
+    </script>
+
     <script>
         function kirimPesanan(e) {
             e.preventDefault();
@@ -264,4 +304,3 @@
     </script>
 </body>
 </html>
-
