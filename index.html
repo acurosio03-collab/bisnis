@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAPER & SIP | Coffee, Croissant & Roaster</title>
+    <!-- Title Berjalan (Marquee) -->
+    <title>☕ PAPER & SIP | Coffee, Croissant & Roaster - Nikmati Hari Santaimu...</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Efek teks berjalan pada tab browser
+        let titleText = "☕ PAPER & SIP | Coffee, Croissant & Roaster • ";
+        function scrollTitle() {
+            titleText = titleText.substring(1) + titleText.substring(0, 1);
+            document.title = titleText;
+            setTimeout(scrollTitle, 300);
+        }
+        window.onload = function() {
+            scrollTitle();
+        }
+    </script>
 </head>
 <body class="bg-gradient-to-b from-red-950 via-zinc-950 to-zinc-950 text-zinc-100 font-sans selection:bg-red-500 selection:text-white min-h-screen">
 
@@ -131,7 +144,6 @@
             const jumlah = document.getElementById('jumlahPesanan').value;
             const catatan = document.getElementById('catatanPesanan').value || 'Tidak ada catatan';
 
-            // Simpan otomatis ke localStorage agar tercatat di Dashboard Admin
             let orders = JSON.parse(localStorage.getItem('daftarPesanan')) || [];
             orders.push({
                 customer: nama,
@@ -143,7 +155,6 @@
             });
             localStorage.setItem('daftarPesanan', JSON.stringify(orders));
 
-            // Kirim ke WhatsApp
             const nomorWa = '6283874795123';
             const pesan = `Halo Paper & Sip, pesanan baru:\n\n*Nama:* ${nama}\n*Nomor Meja:* ${meja}\n*Menu:* ${jumlah}x ${menu}\n*Catatan:* ${catatan}`;
             
