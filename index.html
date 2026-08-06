@@ -17,112 +17,158 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --wine-950: #250509;
+            --wine-900: #3a0a10;
+            --wine-800: #5a0f18;
+            --ember-500: #e63946;
+            --ember-600: #c1121f;
+            --ember-glow: #ff5a5f;
+            --cream: #f6e9d8;
+            --cream-dim: #d8bfa8;
+            --gold: #d4a24e;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background:
+                radial-gradient(ellipse 900px 500px at 15% -5%, rgba(230,57,70,0.30), transparent 60%),
+                radial-gradient(ellipse 700px 500px at 100% 20%, rgba(212,162,78,0.14), transparent 55%),
+                linear-gradient(180deg, var(--wine-950) 0%, var(--wine-900) 45%, var(--wine-950) 100%);
+            color: var(--cream);
+        }
+
+        .font-display { font-family: 'Fraunces', serif; }
+
         .glass-panel {
-            background: linear-gradient(135deg, rgba(24, 24, 27, 0.75) 0%, rgba(9, 9, 11, 0.9) 100%);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(220, 38, 38, 0.18);
+            background: linear-gradient(135deg, rgba(90, 15, 24, 0.55) 0%, rgba(37, 5, 9, 0.75) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(230, 57, 70, 0.25);
         }
         .glow-effect {
-            box-shadow: 0 0 60px -15px rgba(220, 38, 38, 0.2);
+            box-shadow: 0 0 70px -20px rgba(230, 57, 70, 0.45);
         }
-        .gold-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #fca5a5 50%, #ef4444 100%);
+        .ember-gradient {
+            background: linear-gradient(120deg, #fff3e6 0%, var(--gold) 45%, var(--ember-glow) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .btn-primary {
+            background: linear-gradient(120deg, var(--ember-500), var(--ember-600));
+            box-shadow: 0 10px 35px -8px rgba(230, 57, 70, 0.65);
+        }
+        .btn-primary:hover { filter: brightness(1.1); }
+
+        /* Full-bleed hero video: edge-to-edge on every screen size */
+        .hero-video-wrap {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            height: 62vh;
+            min-height: 380px;
+            max-height: 820px;
+            overflow: hidden;
+        }
+        @media (min-width: 1024px) {
+            .hero-video-wrap { height: 88vh; }
+        }
+        .hero-video-wrap video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-scrim {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(37,5,9,0.55) 0%, rgba(37,5,9,0.15) 35%, rgba(37,5,9,0.35) 70%, var(--wine-950) 100%);
+        }
     </style>
 </head>
-<body class="bg-[#030303] text-zinc-100 selection:bg-red-600 selection:text-white min-h-screen antialiased overflow-x-hidden">
-
-    <!-- Ambient Background Glow -->
-    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-red-600/10 blur-[160px] rounded-full pointer-events-none z-0"></div>
+<body class="text-zinc-100 selection:bg-red-600 selection:text-white min-h-screen antialiased overflow-x-hidden">
 
     <!-- Header / Navigasi Atas -->
-    <header class="sticky top-0 z-50 bg-[#030303]/85 backdrop-blur-2xl border-b border-white/5 px-6 lg:px-20 py-4 flex justify-between items-center transition-all duration-300">
+    <header class="sticky top-0 z-50 bg-[#250509]/85 backdrop-blur-2xl border-b border-red-500/10 px-6 lg:px-20 py-4 flex justify-between items-center transition-all duration-300">
         <div class="flex items-center space-x-4">
-            <!-- Logo Toko Asli (Huruf P Eksklusif) -->
-            <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-red-600 via-rose-700 to-zinc-950 flex items-center justify-center shadow-xl shadow-red-600/30 border border-red-500/40">
-                <span class="text-white font-black text-xl tracking-tighter">P</span>
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-red-600 via-rose-700 to-[#3a0a10] flex items-center justify-center shadow-xl shadow-red-600/30 border border-red-500/40">
+                <span class="text-white font-black text-xl tracking-tighter font-display">P</span>
             </div>
             <div>
-                <h1 class="text-sm font-extrabold tracking-[0.25em] text-white">PAPER & SIP</h1>
-                <p class="text-[9px] tracking-[0.35em] text-red-500 uppercase font-bold">Roastery & Sanctuary</p>
+                <h1 class="text-sm font-extrabold tracking-[0.25em] text-cream font-display">PAPER & SIP</h1>
+                <p class="text-[9px] tracking-[0.35em] text-red-400 uppercase font-bold">Roastery & Sanctuary</p>
             </div>
         </div>
-        
+
         <div class="flex items-center space-x-5">
-            <a href="admin.html" class="hidden sm:inline-block text-xs font-semibold text-zinc-400 hover:text-white transition tracking-wider">
+            <a href="admin.html" class="hidden sm:inline-block text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider">
                 ADMIN ACCESS
             </a>
-            <a href="#pesan" class="relative group overflow-hidden rounded-2xl p-[1px] focus:outline-none">
-                <span class="absolute inset-0 bg-gradient-to-r from-red-600 to-rose-400 rounded-2xl transition-all duration-300 group-hover:opacity-90"></span>
-                <span class="relative px-6 py-2.5 rounded-2xl bg-zinc-950 flex items-center justify-center text-xs font-bold text-white transition-all duration-300 group-hover:bg-opacity-0 shadow-lg">
-                    Reserve Table
-                </span>
+            <a href="#pesan" class="btn-primary relative rounded-2xl px-6 py-2.5 flex items-center justify-center text-xs font-bold text-white transition-all duration-300">
+                Reserve Table
             </a>
         </div>
     </header>
 
-    <!-- BAGIAN UTAMA: Video High-End Showcase -->
-    <section class="relative z-10 px-4 sm:px-6 pt-12 pb-16 max-w-7xl mx-auto text-center">
-        <div class="inline-flex items-center space-x-2.5 bg-zinc-900/90 border border-red-500/20 px-4 py-1.5 rounded-full mb-6 shadow-2xl backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            <span class="text-zinc-300 text-[11px] font-semibold tracking-[0.2em] uppercase">Immersive Coffee Culture</span>
-        </div>
-        
-        <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white max-w-5xl mx-auto leading-[1.1]">
-            Where Craftsmanship <br>Meets <span class="gold-gradient">Absolute Luxury</span>
-        </h2>
-        
-        <!-- Video Frame Elite -->
-        <div class="relative max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden glass-panel glow-effect p-2 sm:p-3 border border-white/10 group">
-            <div class="absolute top-6 left-6 z-20 bg-zinc-950/85 backdrop-blur-2xl border border-white/10 px-5 py-2.5 rounded-2xl text-left shadow-2xl pointer-events-none">
+    <!-- HERO: Video Full-Bleed -->
+    <section class="relative z-10">
+        <div class="hero-video-wrap">
+            <video autoplay muted loop playsinline>
+                <source src="testi.mp4" type="video/mp4">
+                Browser Anda tidak mendukung pemutaran video.
+            </video>
+            <div class="hero-scrim"></div>
+
+            <div class="absolute top-6 left-6 z-20 bg-[#250509]/70 backdrop-blur-xl border border-red-500/25 px-5 py-2.5 rounded-2xl text-left shadow-2xl">
                 <div class="flex items-center space-x-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
                     <p class="text-white font-extrabold text-[11px] tracking-widest">LIVE STREAM</p>
                 </div>
-                <p class="text-red-400 text-[9px] uppercase font-semibold tracking-wider mt-0.5">Paper & Sip Main Sanctuary</p>
+                <p class="text-red-300 text-[9px] uppercase font-semibold tracking-wider mt-0.5">Paper & Sip Main Sanctuary</p>
             </div>
-            
-            <div class="rounded-[2rem] overflow-hidden bg-black aspect-video max-h-[680px] w-full">
-                <video class="w-full h-full object-cover scale-[1.01] group-hover:scale-100 transition duration-1000 opacity-95" controls autoplay muted loop>
-                    <source src="testi.mp4" type="video/mp4">
-                    Browser Anda tidak mendukung pemutaran video.
-                </video>
+
+            <div class="absolute inset-x-0 bottom-0 pb-10 sm:pb-14 px-6 text-center">
+                <div class="inline-flex items-center space-x-2.5 bg-[#250509]/70 border border-red-500/30 px-4 py-1.5 rounded-full mb-5 shadow-2xl backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                    <span class="text-[#f0d9c4] text-[11px] font-semibold tracking-[0.2em] uppercase">Immersive Coffee Culture</span>
+                </div>
+                <h2 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-4xl mx-auto leading-[1.05]">
+                    Where Craftsmanship <br>Meets <span class="ember-gradient">Absolute Luxury</span>
+                </h2>
             </div>
         </div>
     </section>
 
     <!-- BAGIAN PEMESANAN ONLINE (Interactive Table Protocol) -->
     <section id="pesan" class="relative z-10 px-6 py-16 max-w-4xl mx-auto">
-        <div class="glass-panel p-8 sm:p-12 rounded-[2.5rem] glow-effect relative overflow-hidden border border-red-900/30">
-            <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-            
+        <div class="glass-panel p-8 sm:p-12 rounded-[2.5rem] glow-effect relative overflow-hidden">
+            <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-red-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+
             <div class="text-center mb-10">
-                <span class="text-red-500 text-xs font-bold tracking-[0.3em] uppercase">Seamless Experience</span>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">Table Ordering Protocol</h3>
-                <p class="text-zinc-400 text-xs mt-2 max-w-md mx-auto">Pilih menu signature kami dan tentukan nomor meja Anda. Pesanan langsung terhubung ke sistem barista.</p>
+                <span class="text-red-400 text-xs font-bold tracking-[0.3em] uppercase">Seamless Experience</span>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">Table Ordering Protocol</h3>
+                <p class="text-[#d8bfa8] text-xs mt-2 max-w-md mx-auto">Pilih menu signature kami dan tentukan nomor meja Anda. Pesanan langsung terhubung ke sistem barista.</p>
             </div>
-            
+
             <form onsubmit="kirimPesanan(event)" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Nama Tamu</label>
-                        <input type="text" id="namaPemesan" required class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-zinc-600" placeholder="Masukkan nama Anda...">
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Nama Tamu</label>
+                        <input type="text" id="namaPemesan" required class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]" placeholder="Masukkan nama Anda...">
                     </div>
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Nomor Meja</label>
-                        <input type="text" id="nomorMeja" required class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-zinc-600" placeholder="Contoh: VIP Table 01">
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Nomor Meja</label>
+                        <input type="text" id="nomorMeja" required class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]" placeholder="Contoh: VIP Table 01">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Pilihan Artisan Menu</label>
-                        <select id="pilihanMenu" class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Pilihan Artisan Menu</label>
+                        <select id="pilihanMenu" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
                             <option value="Butter Croissant (Rp 22.000)">Butter Croissant - Rp 22.000</option>
                             <option value="Caffè Latte (Rp 28.000)">Caffè Latte - Rp 28.000</option>
                             <option value="Almond Croissant (Rp 30.000)">Almond Croissant - Rp 30.000</option>
@@ -130,42 +176,39 @@
                         </select>
                     </div>
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Kuantitas</label>
-                        <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Kuantitas</label>
+                        <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
                     </div>
                 </div>
 
                 <div class="space-y-2">
-                    <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Catatan Khusus (Opsional)</label>
-                    <textarea id="catatanPesanan" rows="2" class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-zinc-600" placeholder="Contoh: Extra shot espresso, suhu hangat..."></textarea>
+                    <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Catatan Khusus (Opsional)</label>
+                    <textarea id="catatanPesanan" rows="2" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]" placeholder="Contoh: Extra shot espresso, suhu hangat..."></textarea>
                 </div>
 
-                <button type="submit" class="w-full relative group overflow-hidden rounded-2xl p-[1px] focus:outline-none pt-2">
-                    <span class="absolute inset-0 bg-gradient-to-r from-red-600 via-rose-500 to-red-700 rounded-2xl transition-all duration-300 group-hover:opacity-90"></span>
-                    <span class="relative w-full py-4 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 flex items-center justify-center text-sm font-black text-white tracking-wider shadow-2xl shadow-red-600/40 transition-all">
-                        KIRIM PESANAN KE BARISTA VIA WHATSAPP 💬
-                    </span>
+                <button type="submit" class="btn-primary w-full relative rounded-2xl py-4 flex items-center justify-center text-sm font-black text-white tracking-wider transition-all">
+                    KIRIM PESANAN KE BARISTA VIA WHATSAPP 💬
                 </button>
             </form>
         </div>
     </section>
 
     <!-- Galeri Testimoni Kelas Atas -->
-    <section class="relative z-10 px-6 py-20 max-w-7xl mx-auto border-t border-white/5">
+    <section class="relative z-10 px-6 py-20 max-w-7xl mx-auto border-t border-red-500/10">
         <div class="text-center mb-16">
-            <span class="text-red-500 font-bold uppercase tracking-[0.3em] text-xs">Curated Moments</span>
-            <h4 class="text-3xl sm:text-4xl font-extrabold mt-3 text-white tracking-tight">The Aesthetic Archives</h4>
+            <span class="text-red-400 font-bold uppercase tracking-[0.3em] text-xs">Curated Moments</span>
+            <h4 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 text-white tracking-tight">The Aesthetic Archives</h4>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
             <script>
                 for (let i = 1; i <= 17; i++) {
                     document.write(`
-                        <div class="glass-panel rounded-2xl overflow-hidden group hover:border-red-500/50 transition duration-500 shadow-xl">
-                            <div class="h-52 bg-zinc-950 overflow-hidden relative">
+                        <div class="glass-panel rounded-2xl overflow-hidden group hover:border-red-500/60 transition duration-500 shadow-xl">
+                            <div class="h-52 bg-[#250509] overflow-hidden relative">
                                 <img src="testi${i}.jpeg" alt="Testimoni ${i}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90 group-hover:opacity-100">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                                    <span class="text-[10px] font-extrabold text-red-400 tracking-wider">#PAPERMOMENT ${i}</span>
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#250509]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                                    <span class="text-[10px] font-extrabold text-red-300 tracking-wider">#PAPERMOMENT ${i}</span>
                                 </div>
                             </div>
                         </div>
@@ -176,18 +219,18 @@
     </section>
 
     <!-- Kontak & Lokasi Mewah -->
-    <section id="kontak" class="relative z-10 px-6 py-20 max-w-4xl mx-auto text-center border-t border-white/5">
+    <section id="kontak" class="relative z-10 px-6 py-20 max-w-4xl mx-auto text-center border-t border-red-500/10">
         <div class="glass-panel p-10 sm:p-14 rounded-[2.5rem] relative overflow-hidden">
-            <h3 class="text-2xl sm:text-3xl font-black mb-4 text-white">📍 The Sanctuary Location</h3>
-            <p class="text-zinc-400 mb-8 text-sm leading-relaxed max-w-md mx-auto">Jl. Braga No. 45, Kota Bandung<br>Operational Hours: 08.00 - 23.00 WIB (Everyday)</p>
-            <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-zinc-900 hover:bg-zinc-800 text-white border border-white/10 font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
+            <h3 class="font-display text-2xl sm:text-3xl font-black mb-4 text-white">📍 The Sanctuary Location</h3>
+            <p class="text-[#d8bfa8] mb-8 text-sm leading-relaxed max-w-md mx-auto">Jl. Braga No. 45, Kota Bandung<br>Operational Hours: 08.00 - 23.00 WIB (Everyday)</p>
+            <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-[#3a0a10] hover:bg-[#5a0f18] text-white border border-red-500/30 font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
                 Direct Concierge WhatsApp
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="relative z-10 text-center py-10 border-t border-white/5 text-zinc-600 text-xs bg-[#010101]">
+    <footer class="relative z-10 text-center py-10 border-t border-red-500/10 text-[#a8817a] text-xs bg-[#1c0407]">
         <p>&copy; 2026 PAPER & SIP. All Rights Reserved. Crafted for High-End Experience.</p>
     </footer>
 
@@ -214,11 +257,11 @@
 
             const nomorWa = '6283874795123';
             const pesan = `Halo Paper & Sip, pesanan baru:\n\n*Nama:* ${nama}\n*Nomor Meja:* ${meja}\n*Menu:* ${jumlah}x ${menu}\n*Catatan:* ${catatan}`;
-            
+
             const urlWa = `https://wa.me/${nomorWa}?text=${encodeURIComponent(pesan)}`;
             window.open(urlWa, '_blank');
         }
     </script>
 </body>
-    </html>
+</html>
 
