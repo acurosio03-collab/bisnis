@@ -6,92 +6,101 @@
     <title>Admin Dashboard - PAPER & SIP</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-b from-red-950 via-zinc-950 to-zinc-950 text-zinc-100 font-sans min-h-screen p-4 md:p-8">
+<body class="bg-gradient-to-b from-red-950 via-zinc-950 to-zinc-950 text-zinc-100 font-sans min-h-screen">
 
-    <!-- BAGIAN 1: AREA LOGIN -->
-    <div id="loginSection" class="max-w-md mx-auto mt-20 bg-zinc-900/90 border border-red-900/40 p-8 rounded-3xl shadow-2xl">
-        <h2 class="text-2xl font-black text-white text-center mb-2">🔐 Admin Login</h2>
-        <p class="text-zinc-400 text-xs text-center mb-6">PAPER & SIP Management Panel</p>
-        
-        <div class="space-y-4">
-            <div>
-                <label class="block text-xs font-semibold text-zinc-300 mb-1">Username</label>
-                <input type="text" id="username" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Ketik: admin">
-            </div>
-            <div>
-                <label class="block text-xs font-semibold text-zinc-300 mb-1">Password</label>
-                <input type="password" id="password" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Ketik: papersip">
-            </div>
-            <button onclick="prosesLogin()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-red-900/50 text-sm">
-                Masuk Dashboard
-            </button>
-            <p id="errorMsg" class="text-red-400 text-xs text-center hidden mt-2">Username/Password salah! Gunakan: admin / papersip</p>
-        </div>
-    </div>
+    <!-- Header / Navigasi Atas (Disamakan dengan Halaman Utama) -->
+    <header class="sticky top-0 z-50 bg-red-950/90 backdrop-blur border-b border-red-900/50 px-6 py-4 flex justify-between items-center shadow-lg">
+        <h1 class="text-xl font-black tracking-wider text-red-400 drop-shadow">☕ PAPER & SIP <span class="text-xs text-zinc-400 font-normal">| Admin Panel</span></h1>
+        <a href="index.html" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 px-3 py-2 rounded-xl text-xs font-bold transition border border-zinc-700">
+            🏠 Ke Beranda
+        </a>
+    </header>
 
-    <!-- BAGIAN 2: DASHBOARD UTAMA -->
-    <div id="dashboardSection" class="max-w-6xl mx-auto hidden space-y-8">
-        <!-- Header Dashboard -->
-        <div class="flex justify-between items-center bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
-            <div>
-                <h1 class="text-xl font-black text-white">☕ Admin Dashboard</h1>
-                <p class="text-red-400 text-xs">Kelola Produk & Catatan Pemesanan Pelanggan</p>
+    <main class="p-4 md:p-8 max-w-6xl mx-auto space-y-8">
+        <!-- BAGIAN 1: AREA LOGIN -->
+        <div id="loginSection" class="max-w-md mx-auto mt-16 bg-zinc-900/90 border border-red-900/40 p-8 rounded-3xl shadow-2xl">
+            <h2 class="text-2xl font-black text-white text-center mb-2">🔐 Admin Login</h2>
+            <p class="text-zinc-400 text-xs text-center mb-6">PAPER & SIP Management Panel</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Username</label>
+                    <input type="text" id="username" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Ketik: admin">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Password</label>
+                    <input type="password" id="password" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Ketik: papersip">
+                </div>
+                <button onclick="prosesLogin()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-red-900/50 text-sm">
+                    Masuk Dashboard
+                </button>
+                <p id="errorMsg" class="text-red-400 text-xs text-center hidden mt-2">Username/Password salah! Gunakan: admin / papersip</p>
             </div>
-            <button onclick="prosesLogout()" class="bg-zinc-800 hover:bg-red-900/50 text-zinc-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition border border-zinc-700">
-                Keluar (Logout)
-            </button>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Kolom Kiri: Tambah Produk -->
-            <div class="space-y-8">
-                <div class="bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
-                    <h2 class="text-lg font-bold text-white mb-4">➕ Tambah Produk</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-zinc-300 mb-1">Nama Produk</label>
-                            <input type="text" id="prodName" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: Butter Croissant">
+        <!-- BAGIAN 2: DASHBOARD UTAMA -->
+        <div id="dashboardSection" class="hidden space-y-8">
+            <!-- Header Dashboard Info -->
+            <div class="flex justify-between items-center bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
+                <div>
+                    <h1 class="text-xl font-black text-white">☕ Admin Dashboard</h1>
+                    <p class="text-red-400 text-xs">Kelola Produk & Catatan Pemesanan Pelanggan</p>
+                </div>
+                <button onclick="prosesLogout()" class="bg-zinc-800 hover:bg-red-900/50 text-zinc-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition border border-zinc-700">
+                    Keluar (Logout)
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Kolom Kiri: Tambah Produk -->
+                <div class="space-y-8">
+                    <div class="bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
+                        <h2 class="text-lg font-bold text-white mb-4">➕ Tambah Produk</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-zinc-300 mb-1">Nama Produk</label>
+                                <input type="text" id="prodName" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: Butter Croissant">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-zinc-300 mb-1">Harga (Rp)</label>
+                                <input type="number" id="prodPrice" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: 25000">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-zinc-300 mb-1">Nama File Foto</label>
+                                <input type="text" id="prodImage" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: testi1.jpeg">
+                            </div>
+                            <button onclick="tambahProduk()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-2.5 rounded-xl transition shadow-lg shadow-red-900/50 text-sm">
+                                Simpan Produk
+                            </button>
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-zinc-300 mb-1">Harga (Rp)</label>
-                            <input type="number" id="prodPrice" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: 25000">
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Daftar Produk & Catatan Pemesanan -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Daftar Catatan Pemesanan Masuk -->
+                    <div class="bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
+                        <h2 class="text-lg font-bold text-white mb-2">📝 Catatan Pemesanan Masuk</h2>
+                        <p class="text-zinc-400 text-xs mb-4">Daftar pesanan dari pelanggan.</p>
+                        <div id="orderList" class="space-y-3">
+                            <p class="text-zinc-500 text-xs text-center py-4">Belum ada pesanan.</p>
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-zinc-300 mb-1">Nama File Foto</label>
-                            <input type="text" id="prodImage" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: testi1.jpeg">
+                    </div>
+
+                    <!-- Daftar Produk Aktif -->
+                    <div class="bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
+                        <h2 class="text-lg font-bold text-white mb-4">📋 Daftar Produk Aktif</h2>
+                        <div id="productList" class="space-y-3">
+                            <!-- Produk akan muncul di sini -->
                         </div>
-                        <button onclick="tambahProduk()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-2.5 rounded-xl transition shadow-lg shadow-red-900/50 text-sm">
-                            Simpan Produk
-                        </button>
                     </div>
                 </div>
             </div>
-
-            <!-- Kolom Kanan: Daftar Produk & Catatan Pemesanan -->
-            <div class="lg:col-span-2 space-y-8">
-                <!-- Daftar Catatan Pemesanan Masuk -->
-                <div class="bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
-                    <h2 class="text-lg font-bold text-white mb-2">📝 Catatan Pemesanan Masuk</h2>
-                    <p class="text-zinc-400 text-xs mb-4">Daftar pesanan dari pelanggan.</p>
-                    <div id="orderList" class="space-y-3">
-                        <p class="text-zinc-500 text-xs text-center py-4">Belum ada pesanan.</p>
-                    </div>
-                </div>
-
-                <!-- Daftar Produk Aktif -->
-                <div class="bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
-                    <h2 class="text-lg font-bold text-white mb-4">📋 Daftar Produk Aktif</h2>
-                    <div id="productList" class="space-y-3">
-                        <!-- Produk akan muncul di sini -->
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Script Admin Diperbarui -->
+    <!-- Script Admin -->
     <script>
-        // Cek apakah sebelumnya sudah pernah login di HP ini
         window.onload = function() {
             if(localStorage.getItem('isLoggedIn') === 'true') {
                 bukaDashboard();
@@ -124,7 +133,6 @@
             document.getElementById('password').value = '';
         }
 
-        // Simpan produk menggunakan penyimpanan lokal HP agar tidak hilang saat di-refresh
         function getProdukLokal() {
             let data = localStorage.getItem('daftarProduk');
             if (!data) {
