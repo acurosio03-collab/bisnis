@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title Berjalan (Marquee) -->
-    <title>☕ PAPER & SIP | Coffee, Croissant & Roaster - Nikmati Hari Santaimu...</title>
+    <!-- Title Berjalan -->
+    <title>☕ PAPER & SIP | Artisan Coffee, Croissant & Roaster - Premium Experience...</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Efek teks berjalan pada tab browser
-        let titleText = "☕ PAPER & SIP | Coffee, Croissant & Roaster • ";
+        let titleText = "☕ PAPER & SIP | Artisan Coffee & Roaster • ";
         function scrollTitle() {
             titleText = titleText.substring(1) + titleText.substring(0, 1);
             document.title = titleText;
@@ -19,99 +18,120 @@
         }
     </script>
 </head>
-<body class="bg-gradient-to-b from-red-950 via-zinc-950 to-zinc-950 text-zinc-100 font-sans selection:bg-red-500 selection:text-white min-h-screen">
+<body class="bg-gradient-to-br from-zinc-950 via-zinc-900 to-red-950 text-zinc-100 font-sans selection:bg-red-600 selection:text-white min-h-screen antialiased">
 
-    <!-- Header / Navigasi Atas -->
-    <header class="sticky top-0 z-50 bg-red-950/90 backdrop-blur border-b border-red-900/50 px-6 py-4 flex justify-between items-center shadow-lg">
-        <h1 class="text-xl font-black tracking-wider text-red-400 drop-shadow">☕ PAPER & SIP</h1>
+    <!-- Header / Navigasi Atas Profesional -->
+    <header class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-red-900/30 px-6 lg:px-12 py-4 flex justify-between items-center shadow-2xl">
         <div class="flex items-center space-x-3">
-            <a href="admin.html" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 px-3 py-2 rounded-xl text-xs font-bold transition border border-zinc-700">
-                🔐 Login Admin
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-600 to-red-900 flex items-center justify-center shadow-lg shadow-red-900/40">
+                <span class="text-white font-black text-lg">P</span>
+            </div>
+            <div>
+                <h1 class="text-base font-black tracking-widest text-white">PAPER & SIP</h1>
+                <p class="text-[10px] tracking-widest text-red-400 uppercase font-semibold">Roastery & Space</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <a href="admin.html" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition border border-zinc-800 shadow-sm">
+                🔐 Admin
             </a>
-            <a href="#pesan" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold transition shadow-md shadow-red-900/50">
-                Pesan Online
+            <a href="#pesan" class="bg-red-600 hover:bg-red-500 text-white px-5 py-2 rounded-xl text-xs font-bold transition shadow-lg shadow-red-600/30">
+                Pesan Meja ☕
             </a>
         </div>
     </header>
 
-    <!-- BAGIAN UTAMA: Video Sambutan -->
-    <section class="px-6 py-10 max-w-4xl mx-auto text-center">
-        <span class="bg-red-900/60 border border-red-700/50 text-red-300 text-xs font-bold tracking-widest px-3 py-1.5 rounded-full uppercase inline-block mb-3">Coffee, Croissant & Roaster</span>
-        <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-8 text-white drop-shadow-md">Nikmati Racikan Kopi & Croissant Terbaik</h2>
+    <!-- BAGIAN UTAMA: Video Lebih Lebar & Naik ke Atas -->
+    <section class="px-4 sm:px-6 pt-6 pb-12 max-w-6xl mx-auto text-center">
+        <div class="inline-flex items-center space-x-2 bg-red-950/50 border border-red-700/40 px-4 py-1.5 rounded-full mb-4 shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            <span class="text-red-300 text-[11px] font-bold tracking-widest uppercase">The Ultimate Coffee & Croissant Experience</span>
+        </div>
         
-        <div class="relative rounded-3xl overflow-hidden bg-zinc-900 border-2 border-red-600/40 shadow-2xl shadow-red-950/80 group">
-            <div class="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl text-left pointer-events-none">
-                <p class="text-white font-black text-sm tracking-wider">PAPER & SIP</p>
-                <p class="text-red-400 text-[10px] uppercase font-semibold">Live Experience</p>
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 text-white drop-shadow-lg leading-tight">
+            Crafted for True <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">Coffee Enthusiasts</span>
+        </h2>
+        
+        <!-- Video Diperlebar (Max-w-5xl) dan Lebih Naik -->
+        <div class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden bg-zinc-900 border border-red-900/40 shadow-2xl shadow-red-950/90 group">
+            <div class="absolute top-5 left-5 z-20 bg-black/70 backdrop-blur-md border border-white/10 px-4 py-2 rounded-2xl text-left pointer-events-none shadow-xl">
+                <p class="text-white font-black text-xs tracking-wider">LIVE AT OUTLET</p>
+                <p class="text-red-400 text-[9px] uppercase font-bold tracking-widest">Paper & Sip Braga</p>
             </div>
-            <video class="w-full h-auto max-h-[520px] object-cover opacity-95 group-hover:opacity-100 transition duration-300" controls autoplay muted loop>
+            <video class="w-full h-auto max-h-[600px] object-cover scale-[1.01] group-hover:scale-100 transition duration-700" controls autoplay muted loop>
                 <source src="testi.mp4" type="video/mp4">
                 Browser Anda tidak mendukung pemutaran video.
             </video>
         </div>
     </section>
 
-    <!-- BAGIAN PEMESANAN ONLINE DENGAN NOMOR MEJA -->
-    <section id="pesan" class="px-6 py-12 max-w-2xl mx-auto border-t border-red-900/30">
-        <div class="bg-zinc-900/80 border border-red-900/40 p-6 md:p-8 rounded-3xl shadow-xl">
-            <h3 class="text-2xl font-black text-white text-center mb-2">🛒 Form Pemesanan Online</h3>
-            <p class="text-zinc-400 text-xs text-center mb-6">Pilih menu dan masukkan nomor meja Anda, pesanan dikirim via WhatsApp.</p>
+    <!-- BAGIAN PEMESANAN ONLINE DENGAN NOMOR MEJA (Desain Modern Glassmorphism) -->
+    <section id="pesan" class="px-6 py-12 max-w-3xl mx-auto">
+        <div class="bg-zinc-900/60 backdrop-blur-xl border border-red-900/40 p-8 sm:p-10 rounded-3xl shadow-2xl shadow-black/80 relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-40 h-40 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
             
-            <form onsubmit="kirimPesanan(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Nama Pemesan</label>
-                    <input type="text" id="namaPemesan" required class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Masukkan nama Anda...">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight">🛒 Live Table Ordering</h3>
+                <p class="text-zinc-400 text-xs mt-1">Pilih menu favoritmu langsung dari meja, pesanan akan terkirim instan ke barista.</p>
+            </div>
+            
+            <form onsubmit="kirimPesanan(event)" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Nama Pemesan</label>
+                        <input type="text" id="namaPemesan" required class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner" placeholder="Masukkan nama Anda...">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Nomor Meja</label>
+                        <input type="text" id="nomorMeja" required class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner" placeholder="Contoh: Meja 05">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Pilih Menu</label>
+                        <select id="pilihanMenu" class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                            <option value="Butter Croissant (Rp 22.000)">Butter Croissant - Rp 22.000</option>
+                            <option value="Caffè Latte (Rp 28.000)">Caffè Latte - Rp 28.000</option>
+                            <option value="Almond Croissant (Rp 30.000)">Almond Croissant - Rp 30.000</option>
+                            <option value="Espresso (Rp 20.000)">Espresso - Rp 20.000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Jumlah Pesanan</label>
+                        <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Nomor Meja</label>
-                    <input type="text" id="nomorMeja" required class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: Meja 05">
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Catatan Tambahan (Opsional)</label>
+                    <textarea id="catatanPesanan" rows="2" class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner" placeholder="Contoh: Kurang manis, es sedikit..."></textarea>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Pilih Menu</label>
-                    <select id="pilihanMenu" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500">
-                        <option value="Butter Croissant (Rp 22.000)">Butter Croissant - Rp 22.000</option>
-                        <option value="Caffè Latte (Rp 28.000)">Caffè Latte - Rp 28.000</option>
-                        <option value="Almond Croissant (Rp 30.000)">Almond Croissant - Rp 30.000</option>
-                        <option value="Espresso (Rp 20.000)">Espresso - Rp 20.000</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Jumlah Pesanan</label>
-                    <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-300 mb-1">Catatan Tambahan (Opsional)</label>
-                    <textarea id="catatanPesanan" rows="2" class="w-full bg-zinc-950 border border-red-900/40 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-red-500" placeholder="Contoh: Jangan terlalu manis..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-red-900/50 text-sm">
-                    Kirim Pesanan ke WhatsApp 💬
+                <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold py-3.5 rounded-xl transition shadow-xl shadow-red-900/50 text-sm tracking-wide">
+                    Kirim Pesanan ke WhatsApp Barista 💬
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Galeri Testimoni Foto -->
-    <section class="px-6 py-12 max-w-6xl mx-auto border-t border-red-900/30">
-        <div class="text-center mb-10">
-            <h3 class="text-red-400 font-bold uppercase tracking-widest text-sm">Bukti Kepercayaan</h3>
-            <h4 class="text-2xl md:text-3xl font-extrabold mt-1 text-white">Galeri Momen Pelanggan</h4>
+    <!-- Galeri Testimoni Foto Profesional -->
+    <section class="px-6 py-16 max-w-7xl mx-auto border-t border-red-900/20">
+        <div class="text-center mb-12">
+            <span class="text-red-400 font-bold uppercase tracking-widest text-xs bg-red-950/60 px-3 py-1 rounded-full border border-red-900/40">Community Moments</span>
+            <h4 class="text-3xl font-black mt-3 text-white">Galeri Kehangatan & Rasa</h4>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
             <script>
                 for (let i = 1; i <= 17; i++) {
                     document.write(`
-                        <div class="bg-zinc-900/80 border border-red-900/20 rounded-2xl overflow-hidden group hover:border-red-500 transition shadow-md">
-                            <div class="h-44 bg-zinc-800">
-                                <img src="testi${i}.jpeg" alt="Testimoni ${i}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl overflow-hidden group hover:border-red-600/50 transition duration-300 shadow-lg">
+                            <div class="h-48 bg-zinc-950 overflow-hidden">
+                                <img src="testi${i}.jpeg" alt="Testimoni ${i}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                             </div>
-                            <div class="p-3 text-center bg-zinc-950/50">
-                                <span class="text-[11px] font-semibold text-red-300">Ulasan #${i}</span>
+                            <div class="p-3 text-center bg-zinc-950/80 border-t border-zinc-900">
+                                <span class="text-[11px] font-bold text-red-400 tracking-wider">#PAPERMOMENT ${i}</span>
                             </div>
                         </div>
                     `);
@@ -121,20 +141,20 @@
     </section>
 
     <!-- Kontak & Lokasi -->
-    <section id="kontak" class="px-6 py-16 max-w-4xl mx-auto text-center border-t border-red-900/30">
-        <h3 class="text-2xl font-bold mb-3 text-white">📍 Kunjungi Outlet PAPER & SIP</h3>
-        <p class="text-zinc-400 mb-6 text-sm">Jl. Braga No. 45, Kota Bandung<br>Buka Setiap Hari: 08.00 - 23.00 WIB</p>
-        <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-red-600 hover:bg-red-500 text-white font-bold px-8 py-3.5 rounded-full transition shadow-lg shadow-red-900/60">
+    <section id="kontak" class="px-6 py-16 max-w-4xl mx-auto text-center border-t border-red-900/20">
+        <h3 class="text-2xl font-black mb-3 text-white">📍 Kunjungi Outlet PAPER & SIP</h3>
+        <p class="text-zinc-400 mb-8 text-sm leading-relaxed">Jl. Braga No. 45, Kota Bandung<br>Buka Setiap Hari: 08.00 - 23.00 WIB</p>
+        <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-red-900/40 font-bold px-8 py-3.5 rounded-2xl transition shadow-xl text-sm">
             💬 Hubungi Kami via WhatsApp
         </a>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-8 border-t border-red-900/30 text-zinc-500 text-xs bg-zinc-950/80">
-        <p>PAPER & SIP. All rights reserved.</p>
+    <footer class="text-center py-8 border-t border-zinc-900 text-zinc-500 text-xs bg-zinc-950">
+        <p>&copy; 2026 PAPER & SIP. All rights reserved.</p>
     </footer>
 
-    <!-- Script Pengiriman Pesanan & Simpan ke Catatan Admin -->
+    <!-- Script Pengiriman Pesanan -->
     <script>
         function kirimPesanan(e) {
             e.preventDefault();
