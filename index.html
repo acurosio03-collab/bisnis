@@ -3,135 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title Berjalan -->
-    <title>☕ PAPER & SIP | Artisan Coffee, Croissant & Roaster - Premium Experience...</title>
+    <title>☕ PAPER & SIP | Elite Artisan Coffee & Roastery Experience...</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        let titleText = "☕ PAPER & SIP | Artisan Coffee & Roaster • ";
+        let titleText = "✨ PAPER & SIP | The Ultimate Luxury Coffee Space • ";
         function scrollTitle() {
             titleText = titleText.substring(1) + titleText.substring(0, 1);
             document.title = titleText;
-            setTimeout(scrollTitle, 300);
+            setTimeout(scrollTitle, 250);
         }
         window.onload = function() {
             scrollTitle();
         }
     </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(24, 24, 27, 0.7) 0%, rgba(9, 9, 11, 0.85) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(220, 38, 38, 0.15);
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(220, 38, 38, 0.15);
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-zinc-950 via-zinc-900 to-red-950 text-zinc-100 font-sans selection:bg-red-600 selection:text-white min-h-screen antialiased">
+<body class="bg-[#050505] text-zinc-100 selection:bg-red-600 selection:text-white min-h-screen antialiased overflow-x-hidden">
 
-    <!-- Header / Navigasi Atas Profesional -->
-    <header class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-red-900/30 px-6 lg:px-12 py-4 flex justify-between items-center shadow-2xl">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-600 to-red-900 flex items-center justify-center shadow-lg shadow-red-900/40">
-                <span class="text-white font-black text-lg">P</span>
+    <!-- Ambient Background Glow -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-red-600/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+
+    <!-- Header / Navigasi Atas (Glassmorphism Elite) -->
+    <header class="sticky top-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 px-6 lg:px-16 py-4 flex justify-between items-center transition-all duration-300">
+        <div class="flex items-center space-x-3.5">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-red-500 to-red-950 flex items-center justify-center shadow-lg shadow-red-600/20 border border-red-500/30">
+                <span class="text-white font-black text-lg tracking-tighter">P</span>
             </div>
             <div>
-                <h1 class="text-base font-black tracking-widest text-white">PAPER & SIP</h1>
-                <p class="text-[10px] tracking-widest text-red-400 uppercase font-semibold">Roastery & Space</p>
+                <h1 class="text-sm font-extrabold tracking-[0.2em] text-white">PAPER & SIP</h1>
+                <p class="text-[9px] tracking-[0.3em] text-red-500 uppercase font-bold">Roastery & Sanctuary</p>
             </div>
         </div>
-        <div class="flex items-center space-x-3">
-            <a href="admin.html" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition border border-zinc-800 shadow-sm">
-                🔐 Admin
+        
+        <div class="flex items-center space-x-4">
+            <a href="admin.html" class="hidden sm:inline-block text-xs font-semibold text-zinc-400 hover:text-white transition tracking-wider">
+                ADMIN ACCESS
             </a>
-            <a href="#pesan" class="bg-red-600 hover:bg-red-500 text-white px-5 py-2 rounded-xl text-xs font-bold transition shadow-lg shadow-red-600/30">
-                Pesan Meja ☕
+            <a href="#pesan" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none">
+                <span class="absolute inset-0 bg-gradient-to-r from-red-600 to-rose-400 rounded-xl transition-all duration-300 group-hover:opacity-90"></span>
+                <span class="relative px-5 py-2.5 rounded-xl bg-zinc-950 flex items-center justify-center text-xs font-bold text-white transition-all duration-300 group-hover:bg-opacity-0">
+                    Reserve Table ✦
+                </span>
             </a>
         </div>
     </header>
 
-    <!-- BAGIAN UTAMA: Video Lebih Lebar & Naik ke Atas -->
-    <section class="px-4 sm:px-6 pt-6 pb-12 max-w-6xl mx-auto text-center">
-        <div class="inline-flex items-center space-x-2 bg-red-950/50 border border-red-700/40 px-4 py-1.5 rounded-full mb-4 shadow-inner">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            <span class="text-red-300 text-[11px] font-bold tracking-widest uppercase">The Ultimate Coffee & Croissant Experience</span>
+    <!-- BAGIAN UTAMA: Video Elite Presentation -->
+    <section class="relative z-10 px-4 sm:px-6 pt-10 pb-16 max-w-7xl mx-auto text-center">
+        <div class="inline-flex items-center space-x-2.5 bg-zinc-900/80 border border-red-500/20 px-4 py-1.5 rounded-full mb-6 shadow-2xl backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            <span class="text-zinc-300 text-[11px] font-semibold tracking-[0.2em] uppercase">Immersive Coffee Culture</span>
         </div>
         
-        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 text-white drop-shadow-lg leading-tight">
-            Crafted for True <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">Coffee Enthusiasts</span>
+        <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-8 text-white max-w-5xl mx-auto leading-[1.1]">
+            Where Craftsmanship <br>Meets <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-600">Absolute Luxury</span>
         </h2>
         
-        <!-- Video Diperlebar (Max-w-5xl) dan Lebih Naik -->
-        <div class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden bg-zinc-900 border border-red-900/40 shadow-2xl shadow-red-950/90 group">
-            <div class="absolute top-5 left-5 z-20 bg-black/70 backdrop-blur-md border border-white/10 px-4 py-2 rounded-2xl text-left pointer-events-none shadow-xl">
-                <p class="text-white font-black text-xs tracking-wider">LIVE AT OUTLET</p>
-                <p class="text-red-400 text-[9px] uppercase font-bold tracking-widest">Paper & Sip Braga</p>
+        <!-- Video Frame High-End -->
+        <div class="relative max-w-6xl mx-auto rounded-[2.5rem] overflow-hidden glass-panel glow-effect p-2 sm:p-3 border border-white/10 group">
+            <div class="absolute top-6 left-6 z-20 bg-zinc-950/80 backdrop-blur-xl border border-white/10 px-5 py-2.5 rounded-2xl text-left shadow-2xl pointer-events-none">
+                <div class="flex items-center space-x-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                    <p class="text-white font-extrabold text-[11px] tracking-widest">LIVE STREAM</p>
+                </div>
+                <p class="text-red-400 text-[9px] uppercase font-semibold tracking-wider mt-0.5">Paper & Sip Main Sanctuary</p>
             </div>
-            <video class="w-full h-auto max-h-[600px] object-cover scale-[1.01] group-hover:scale-100 transition duration-700" controls autoplay muted loop>
-                <source src="testi.mp4" type="video/mp4">
-                Browser Anda tidak mendukung pemutaran video.
-            </video>
+            
+            <div class="rounded-[2rem] overflow-hidden bg-black aspect-video max-h-[650px] w-full">
+                <video class="w-full h-full object-cover scale-[1.01] group-hover:scale-100 transition duration-1000 opacity-95" controls autoplay muted loop>
+                    <source src="testi.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung pemutaran video.
+                </video>
+            </div>
         </div>
     </section>
 
-    <!-- BAGIAN PEMESANAN ONLINE DENGAN NOMOR MEJA (Desain Modern Glassmorphism) -->
-    <section id="pesan" class="px-6 py-12 max-w-3xl mx-auto">
-        <div class="bg-zinc-900/60 backdrop-blur-xl border border-red-900/40 p-8 sm:p-10 rounded-3xl shadow-2xl shadow-black/80 relative overflow-hidden">
-            <div class="absolute -right-20 -top-20 w-40 h-40 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- BAGIAN PEMESANAN ONLINE (Elite Interactive Card) -->
+    <section id="pesan" class="relative z-10 px-6 py-16 max-w-4xl mx-auto">
+        <div class="glass-panel p-8 sm:p-12 rounded-[2.5rem] glow-effect relative overflow-hidden border border-red-900/30">
+            <!-- Decorative Light Background -->
+            <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
             
-            <div class="text-center mb-8">
-                <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight">🛒 Live Table Ordering</h3>
-                <p class="text-zinc-400 text-xs mt-1">Pilih menu favoritmu langsung dari meja, pesanan akan terkirim instan ke barista.</p>
+            <div class="text-center mb-10">
+                <span class="text-red-500 text-xs font-bold tracking-[0.3em] uppercase">Seamless Experience</span>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">Table Ordering Protocol</h3>
+                <p class="text-zinc-400 text-xs mt-2 max-w-md mx-auto">Pilih menu signature kami dan tentukan nomor meja Anda. Pesanan langsung terhubung ke sistem barista.</p>
             </div>
             
-            <form onsubmit="kirimPesanan(event)" class="space-y-5">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Nama Pemesan</label>
-                        <input type="text" id="namaPemesan" required class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner" placeholder="Masukkan nama Anda...">
+            <form onsubmit="kirimPesanan(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Nama Tamu</label>
+                        <input type="text" id="namaPemesan" required class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-zinc-600" placeholder="Masukkan nama Anda...">
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Nomor Meja</label>
-                        <input type="text" id="nomorMeja" required class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner" placeholder="Contoh: Meja 05">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Nomor Meja</label>
+                        <input type="text" id="nomorMeja" required class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-zinc-600" placeholder="Contoh: VIP Table 01">
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Pilih Menu</label>
-                        <select id="pilihanMenu" class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Pilihan Artisan Menu</label>
+                        <select id="pilihanMenu" class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
                             <option value="Butter Croissant (Rp 22.000)">Butter Croissant - Rp 22.000</option>
                             <option value="Caffè Latte (Rp 28.000)">Caffè Latte - Rp 28.000</option>
                             <option value="Almond Croissant (Rp 30.000)">Almond Croissant - Rp 30.000</option>
                             <option value="Espresso (Rp 20.000)">Espresso - Rp 20.000</option>
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Jumlah Pesanan</label>
-                        <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Kuantitas</label>
+                        <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Catatan Tambahan (Opsional)</label>
-                    <textarea id="catatanPesanan" rows="2" class="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner" placeholder="Contoh: Kurang manis, es sedikit..."></textarea>
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Catatan Khusus (Opsional)</label>
+                    <textarea id="catatanPesanan" rows="2" class="w-full bg-zinc-900/90 border border-zinc-800 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-zinc-600" placeholder="Contoh: Extra shot espresso, suhu hangat..."></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold py-3.5 rounded-xl transition shadow-xl shadow-red-900/50 text-sm tracking-wide">
-                    Kirim Pesanan ke WhatsApp Barista 💬
+                <button type="submit" class="w-full relative group overflow-hidden rounded-2xl p-[1px] focus:outline-none pt-2">
+                    <span class="absolute inset-0 bg-gradient-to-r from-red-600 via-rose-500 to-red-700 rounded-2xl transition-all duration-300 group-hover:opacity-90"></span>
+                    <span class="relative w-full py-4 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 flex items-center justify-center text-sm font-black text-white tracking-wider shadow-2xl shadow-red-600/40 transition-all">
+                        KIRIM PESANAN KE BARISTA VIA WHATSAPP 💬
+                    </span>
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Galeri Testimoni Foto Profesional -->
-    <section class="px-6 py-16 max-w-7xl mx-auto border-t border-red-900/20">
-        <div class="text-center mb-12">
-            <span class="text-red-400 font-bold uppercase tracking-widest text-xs bg-red-950/60 px-3 py-1 rounded-full border border-red-900/40">Community Moments</span>
-            <h4 class="text-3xl font-black mt-3 text-white">Galeri Kehangatan & Rasa</h4>
+    <!-- Galeri Testimoni Kelas Atas (Masonry/Grid Mewah) -->
+    <section class="relative z-10 px-6 py-20 max-w-7xl mx-auto border-t border-white/5">
+        <div class="text-center mb-16">
+            <span class="text-red-500 font-bold uppercase tracking-[0.3em] text-xs">Curated Moments</span>
+            <h4 class="text-3xl sm:text-4xl font-extrabold mt-3 text-white tracking-tight">The Aesthetic Archives</h4>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
             <script>
                 for (let i = 1; i <= 17; i++) {
                     document.write(`
-                        <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl overflow-hidden group hover:border-red-600/50 transition duration-300 shadow-lg">
-                            <div class="h-48 bg-zinc-950 overflow-hidden">
-                                <img src="testi${i}.jpeg" alt="Testimoni ${i}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                            </div>
-                            <div class="p-3 text-center bg-zinc-950/80 border-t border-zinc-900">
-                                <span class="text-[11px] font-bold text-red-400 tracking-wider">#PAPERMOMENT ${i}</span>
+                        <div class="glass-panel rounded-2xl overflow-hidden group hover:border-red-500/50 transition duration-500 shadow-xl">
+                            <div class="h-52 bg-zinc-950 overflow-hidden relative">
+                                <img src="testi${i}.jpeg" alt="Testimoni ${i}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90 group-hover:opacity-100">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                                    <span class="text-[10px] font-extrabold text-red-400 tracking-wider">#ELITEPAPER ${i}</span>
+                                </div>
                             </div>
                         </div>
                     `);
@@ -140,18 +170,20 @@
         </div>
     </section>
 
-    <!-- Kontak & Lokasi -->
-    <section id="kontak" class="px-6 py-16 max-w-4xl mx-auto text-center border-t border-red-900/20">
-        <h3 class="text-2xl font-black mb-3 text-white">📍 Kunjungi Outlet PAPER & SIP</h3>
-        <p class="text-zinc-400 mb-8 text-sm leading-relaxed">Jl. Braga No. 45, Kota Bandung<br>Buka Setiap Hari: 08.00 - 23.00 WIB</p>
-        <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-red-900/40 font-bold px-8 py-3.5 rounded-2xl transition shadow-xl text-sm">
-            💬 Hubungi Kami via WhatsApp
-        </a>
+    <!-- Kontak & Lokasi Mewah -->
+    <section id="kontak" class="relative z-10 px-6 py-20 max-w-4xl mx-auto text-center border-t border-white/5">
+        <div class="glass-panel p-10 sm:p-14 rounded-[2.5rem] relative overflow-hidden">
+            <h3 class="text-2xl sm:text-3xl font-black mb-4 text-white">📍 The Sanctuary Location</h3>
+            <p class="text-zinc-400 mb-8 text-sm leading-relaxed max-w-md mx-auto">Jl. Braga No. 45, Kota Bandung<br>Operational Hours: 08.00 - 23.00 WIB (Everyday)</p>
+            <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-zinc-900 hover:bg-zinc-800 text-white border border-white/10 font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
+                Direct Concierge WhatsApp ✦
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-8 border-t border-zinc-900 text-zinc-500 text-xs bg-zinc-950">
-        <p>&copy; 2026 PAPER & SIP. All rights reserved.</p>
+    <footer class="relative z-10 text-center py-10 border-t border-white/5 text-zinc-600 text-xs bg-[#030303]">
+        <p>&copy; 2026 PAPER & SIP. All Rights Reserved. Crafted for High-End Experience.</p>
     </footer>
 
     <!-- Script Pengiriman Pesanan -->
