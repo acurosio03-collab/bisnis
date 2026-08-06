@@ -104,7 +104,7 @@
         </div>
 
         <div class="flex items-center space-x-5">
-            <a href="admin.html" class="hidden sm:inline-block text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider">
+            <a href="login.html" class="hidden sm:inline-block text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider">
                 ADMIN ACCESS
             </a>
             <a href="#pesan" class="btn-primary relative rounded-2xl px-6 py-2.5 flex items-center justify-center text-xs font-bold text-white transition-all duration-300">
@@ -116,7 +116,7 @@
     <!-- HERO: Video Full-Bleed -->
     <section class="relative z-10">
         <div class="hero-video-wrap">
-            <video autoplay muted loop playsinline>
+            <video id="heroVideo" autoplay muted loop playsinline>
                 <source src="testi.mp4" type="video/mp4">
                 Browser Anda tidak mendukung pemutaran video.
             </video>
@@ -130,6 +130,11 @@
                 <p class="text-red-300 text-[9px] uppercase font-semibold tracking-wider mt-0.5">Paper & Sip Main Sanctuary</p>
             </div>
 
+            <button id="btnToggleSuara" class="absolute top-6 right-6 z-20 flex items-center gap-2 bg-[#250509]/70 backdrop-blur-xl border border-red-500/25 px-4 py-2.5 rounded-2xl shadow-2xl text-white text-xs font-bold tracking-wider hover:bg-[#3a0a10]/90 transition">
+                <span id="iconSuara">🔊</span>
+                <span id="labelSuara">Aktifkan Suara</span>
+            </button>
+
             <div class="absolute inset-x-0 bottom-0 pb-10 sm:pb-14 px-6 text-center">
                 <div class="inline-flex items-center space-x-2.5 bg-[#250509]/70 border border-red-500/30 px-4 py-1.5 rounded-full mb-5 shadow-2xl backdrop-blur-md">
                     <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
@@ -140,6 +145,7 @@
                 </h2>
             </div>
         </div>
+
     </section>
 
     <!-- BAGIAN PEMESANAN ONLINE (Interactive Table Protocol) -->
@@ -229,6 +235,28 @@
         <p>&copy; 2026 PAPER & SIP. All Rights Reserved. Crafted for High-End Experience.</p>
     </footer>
 
+    <!-- Script Toggle Suara Video Hero -->
+    <script>
+        const heroVideo = document.getElementById('heroVideo');
+        const btnToggleSuara = document.getElementById('btnToggleSuara');
+        const iconSuara = document.getElementById('iconSuara');
+        const labelSuara = document.getElementById('labelSuara');
+
+        btnToggleSuara.addEventListener('click', () => {
+            if (heroVideo.muted) {
+                heroVideo.muted = false;
+                heroVideo.volume = 1;
+                heroVideo.play();
+                iconSuara.textContent = '🔇';
+                labelSuara.textContent = 'Matikan Suara';
+            } else {
+                heroVideo.muted = true;
+                iconSuara.textContent = '🔊';
+                labelSuara.textContent = 'Aktifkan Suara';
+            }
+        });
+    </script>
+
     <!-- Script Menu Dinamis & Pengiriman Pesanan -->
     <script>
         const KEY_PRODUK = 'daftarProduk';
@@ -304,3 +332,4 @@
     </script>
 </body>
 </html>
+
