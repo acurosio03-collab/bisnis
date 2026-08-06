@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - PAPER & SIP</title>
+    <!-- Title Berjalan (Marquee) -->
+    <title>🔐 Admin Dashboard | PAPER & SIP Panel Kontrol...</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Efek teks berjalan pada tab browser admin
+        let titleAdminText = "🔐 Admin Dashboard | PAPER & SIP Panel Kontrol • ";
+        function scrollAdminTitle() {
+            titleAdminText = titleAdminText.substring(1) + titleAdminText.substring(0, 1);
+            document.title = titleAdminText;
+            setTimeout(scrollAdminTitle, 300);
+        }
+        window.onload = function() {
+            scrollAdminTitle();
+            if(localStorage.getItem('isLoggedIn') === 'true') {
+                bukaDashboard();
+            }
+        }
+    </script>
 </head>
 <body class="bg-gradient-to-b from-red-950 via-zinc-950 to-zinc-950 text-zinc-100 font-sans min-h-screen">
 
@@ -77,7 +93,7 @@
 
                 <!-- Rekapan Pesanan & Nomor Meja + Daftar Produk -->
                 <div class="lg:col-span-2 space-y-8">
-                    <!-- Catatan Pemesanan Masuk (Dilengkapi Nomor Meja) -->
+                    <!-- Catatan Pemesanan Masuk -->
                     <div class="bg-zinc-900/80 border border-red-900/40 p-6 rounded-3xl shadow-xl">
                         <h2 class="text-lg font-bold text-white mb-2">📝 Catatan Pemesanan & Nomor Meja</h2>
                         <p class="text-zinc-400 text-xs mb-4">Pesanan yang dikirim pelanggan dari halaman utama akan muncul otomatis di sini.</p>
@@ -98,12 +114,6 @@
 
     <!-- Script Admin -->
     <script>
-        window.onload = function() {
-            if(localStorage.getItem('isLoggedIn') === 'true') {
-                bukaDashboard();
-            }
-        }
-
         function prosesLogin() {
             const u = document.getElementById('username').value.trim();
             const p = document.getElementById('password').value.trim();
@@ -128,7 +138,6 @@
             document.getElementById('loginSection').classList.remove('hidden');
         }
 
-        // Muat Data Pesanan dari LocalStorage
         function muatPesanan() {
             let orders = JSON.parse(localStorage.getItem('daftarPesanan')) || [];
             const list = document.getElementById('orderList');
@@ -186,7 +195,6 @@
             }
         }
 
-        // Produk Management
         function getProdukLokal() {
             let data = localStorage.getItem('daftarProduk');
             if (!data) {
