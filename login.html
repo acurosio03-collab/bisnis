@@ -1,138 +1,40 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | Paper & Sip</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
-        :root {
-            --wine-950: #250509;
-            --wine-900: #3a0a10;
-            --ember-500: #e63946;
-            --ember-600: #c1121f;
-            --ember-glow: #ff5a5f;
-            --gold: #d4a24e;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background:
-                radial-gradient(ellipse 900px 500px at 15% -5%, rgba(230,57,70,0.30), transparent 60%),
-                radial-gradient(ellipse 700px 500px at 100% 20%, rgba(212,162,78,0.14), transparent 55%),
-                linear-gradient(180deg, var(--wine-950) 0%, var(--wine-900) 45%, var(--wine-950) 100%);
-            color: #f6e9d8;
-        }
-        .font-display { font-family: 'Fraunces', serif; }
-        .glass-panel {
-            background: linear-gradient(135deg, rgba(90, 15, 24, 0.55) 0%, rgba(37, 5, 9, 0.8) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(230, 57, 70, 0.25);
-        }
-        .glow-effect { box-shadow: 0 0 70px -15px rgba(230, 57, 70, 0.5); }
-        .btn-primary {
-            background: linear-gradient(120deg, var(--ember-500), var(--ember-600));
-            box-shadow: 0 10px 35px -8px rgba(230, 57, 70, 0.65);
-        }
-        .btn-primary:hover { filter: brightness(1.1); }
-        .shake { animation: shake 0.4s; }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-8px); }
-            40%, 80% { transform: translateX(8px); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Admin | FU IYOH Kopitiam</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+:root{--wine-950:#250509;--wine-900:#3a0a10;--ember-500:#e63946;--ember-600:#c1121f;--gold:#d4a24e;--cream:#f6e9d8}
+*{box-sizing:border-box}body{font-family:'Plus Jakarta Sans',sans-serif;background:radial-gradient(ellipse 900px 500px at 15% -5%,rgba(230,57,70,.24),transparent 60%),radial-gradient(ellipse 700px 500px at 100% 20%,rgba(212,162,78,.12),transparent 55%),linear-gradient(180deg,var(--wine-950) 0%,var(--wine-900) 45%,var(--wine-950) 100%);color:var(--cream)}
+.font-display{font-family:'Fraunces',serif}.glass-panel{background:linear-gradient(135deg,rgba(90,15,24,.58),rgba(37,5,9,.82));backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(230,57,70,.24)}.glow-effect{box-shadow:0 0 70px -18px rgba(230,57,70,.5),0 25px 80px rgba(0,0,0,.25)}.btn-primary{background:linear-gradient(120deg,var(--ember-500),var(--ember-600));box-shadow:0 10px 35px -8px rgba(230,57,70,.65)}.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}.input-field{width:100%;background:rgba(58,10,16,.72);border:1px solid rgba(230,57,70,.2);border-radius:1rem;padding:.9rem 1.25rem;color:#fff;outline:0;transition:.2s}.input-field:focus{border-color:rgba(230,57,70,.75);box-shadow:0 0 0 3px rgba(230,57,70,.08)}.input-field::placeholder{color:#a8817a}.shake{animation:shake .4s}@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}.fade-up{animation:fadeUp .6s ease both}@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+</style>
 </head>
-<body class="min-h-screen antialiased flex items-center justify-center px-6 py-16">
-
-    <div class="w-full max-w-md">
-        <div class="text-center mb-8">
-            <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-red-600 via-rose-700 to-[#3a0a10] flex items-center justify-center shadow-xl shadow-red-600/30 border border-red-500/40 mb-4">
-                <span class="text-white font-black text-2xl tracking-tighter font-display">P</span>
-            </div>
-            <h1 class="font-display text-2xl font-black text-white tracking-tight">PAPER & SIP</h1>
-            <p class="text-[10px] tracking-[0.35em] text-red-400 uppercase font-bold mt-1">Admin Control Panel</p>
-        </div>
-
-        <div id="loginCard" class="glass-panel glow-effect rounded-[2rem] p-8 sm:p-10">
-            <h2 class="font-display text-xl font-bold text-white text-center mb-1">Masuk ke Dashboard</h2>
-            <p class="text-[#d8bfa8] text-xs text-center mb-8">Khusus untuk tim internal Paper & Sip.</p>
-
-            <form id="formLogin" class="space-y-5">
-                <div class="space-y-2">
-                    <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Username</label>
-                    <input type="text" id="inputUsername" required autocomplete="username" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]" placeholder="Masukkan username">
-                </div>
-                <div class="space-y-2">
-                    <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Password</label>
-                    <div class="relative">
-                        <input type="password" id="inputPassword" required autocomplete="current-password" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a] pr-12" placeholder="Masukkan password">
-                        <button type="button" id="btnLihatPassword" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#a8817a] hover:text-white text-xs font-bold">
-                            LIHAT
-                        </button>
-                    </div>
-                </div>
-
-                <p id="pesanError" class="hidden text-red-400 text-xs font-semibold text-center bg-red-500/10 border border-red-500/30 rounded-xl py-2.5 px-4">
-                    Username atau password salah. Silakan coba lagi.
-                </p>
-
-                <button type="submit" class="btn-primary w-full rounded-2xl py-4 flex items-center justify-center text-sm font-black text-white tracking-wider transition-all">
-                    Masuk
-                </button>
-            </form>
-        </div>
-
-        <div class="text-center mt-6">
-            <a href="index.html" class="text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider">
-                ← Kembali ke Situs Utama
-            </a>
-        </div>
-    </div>
-
-    <script>
-        const USERNAME_VALID = 'admin';
-        const PASSWORD_VALID = 'papersip';
-
-        const formLogin = document.getElementById('formLogin');
-        const pesanError = document.getElementById('pesanError');
-        const loginCard = document.getElementById('loginCard');
-
-        document.getElementById('btnLihatPassword').addEventListener('click', () => {
-            const input = document.getElementById('inputPassword');
-            const btn = document.getElementById('btnLihatPassword');
-            if (input.type === 'password') {
-                input.type = 'text';
-                btn.textContent = 'SEMBUNYI';
-            } else {
-                input.type = 'password';
-                btn.textContent = 'LIHAT';
-            }
-        });
-
-        formLogin.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('inputUsername').value.trim();
-            const password = document.getElementById('inputPassword').value;
-
-            if (username === USERNAME_VALID && password === PASSWORD_VALID) {
-                sessionStorage.setItem('paperSipAdminAuth', 'true');
-                window.location.href = 'admin.html';
-            } else {
-                pesanError.classList.remove('hidden');
-                loginCard.classList.remove('shake');
-                void loginCard.offsetWidth;
-                loginCard.classList.add('shake');
-            }
-        });
-
-        // Jika sudah login sebelumnya di sesi ini, langsung lempar ke dashboard
-        if (sessionStorage.getItem('paperSipAdminAuth') === 'true') {
-            window.location.href = 'admin.html';
-        }
-    </script>
-</body>
-</html>
+<body class="min-h-screen antialiased flex items-center justify-center px-5 py-10 overflow-hidden">
+<main class="w-full max-w-md relative z-10 fade-up">
+<div class="text-center mb-7">
+<div class="w-16 h-16 mx-auto rounded-[1.35rem] bg-gradient-to-tr from-red-600 via-rose-700 to-[#3a0a10] flex items-center justify-center shadow-xl shadow-red-600/30 border border-red-500/40 mb-4"><span class="text-white font-black text-3xl tracking-tighter font-display">F</span></div>
+<h1 class="font-display text-2xl sm:text-3xl font-black text-white tracking-tight">FU IYOH KOPITIAM</h1>
+<div class="flex items-center justify-center gap-2 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><p class="text-[10px] tracking-[0.32em] text-red-400 uppercase font-bold">Admin Control Panel</p><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span></div>
+</div>
+<div id="loginCard" class="glass-panel glow-effect rounded-[2rem] p-7 sm:p-9">
+<div class="text-center mb-8"><span class="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-red-500/10 border border-red-500/20 text-xl mb-4">🔐</span><h2 class="font-display text-2xl font-bold text-white">Masuk ke Dashboard</h2><p class="text-[#d8bfa8] text-xs mt-2 leading-relaxed">Kelola menu, harga, dan pesanan FU IYOH Kopitiam.</p></div>
+<form id="formLogin" class="space-y-5">
+<div class="space-y-2"><label for="inputUsername" class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Username</label><input type="text" id="inputUsername" required autocomplete="username" class="input-field" placeholder="Masukkan username"></div>
+<div class="space-y-2"><label for="inputPassword" class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Password</label><div class="relative"><input type="password" id="inputPassword" required autocomplete="current-password" class="input-field pr-20" placeholder="Masukkan password"><button type="button" id="btnLihatPassword" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#a8817a] hover:text-white text-[10px] font-bold tracking-wider">LIHAT</button></div></div>
+<p id="pesanError" class="hidden text-red-300 text-xs font-semibold text-center bg-red-500/10 border border-red-500/30 rounded-xl py-2.5 px-4">Username atau password salah. Silakan coba lagi.</p>
+<button type="submit" class="btn-primary w-full rounded-2xl py-4 flex items-center justify-center text-sm font-black text-white tracking-wider transition-all duration-200">MASUK KE DASHBOARD</button>
+</form></div>
+<div class="text-center mt-6"><a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider"><span>←</span>Kembali ke Situs Utama</a></div>
+<p class="text-center text-[9px] text-[#a8817a] mt-8 opacity-70">FU IYOH Kopitiam • Internal Management System</p>
+</main>
+<script>
+const USERNAME_VALID='admin';const PASSWORD_VALID='fuiyoh';
+const formLogin=document.getElementById('formLogin'),pesanError=document.getElementById('pesanError'),loginCard=document.getElementById('loginCard');
+document.getElementById('btnLihatPassword').addEventListener('click',()=>{const input=document.getElementById('inputPassword'),btn=document.getElementById('btnLihatPassword');if(input.type==='password'){input.type='text';btn.textContent='SEMBUNYI'}else{input.type='password';btn.textContent='LIHAT'}});
+formLogin.addEventListener('submit',e=>{e.preventDefault();const username=document.getElementById('inputUsername').value.trim(),password=document.getElementById('inputPassword').value;if(username===USERNAME_VALID&&password===PASSWORD_VALID){sessionStorage.setItem('fuiyohAdminAuth','true');window.location.href='admin.html'}else{pesanError.classList.remove('hidden');loginCard.classList.remove('shake');void loginCard.offsetWidth;loginCard.classList.add('shake')}});
+if(sessionStorage.getItem('fuiyohAdminAuth')==='true')window.location.href='admin.html';
+</script>
+</body></html>
