@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>☕ PAPER & SIP | Elite Artisan Coffee & Roastery Experience...</title>
+
+    <!-- =========================================================
+         FU IYOH KOPITIAM - DEMO WEBSITE
+         GANTI BAGIAN YANG DITANDAI "GANTI" SEBELUM DIKIRIM KE OWNER
+         ========================================================= -->
+
+    <title>☕ FU IYOH Kopitiam | Kopitiam & Kuliner</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        let titleText = "✨ PAPER & SIP | The Ultimate Luxury Coffee Space • ";
-        function scrollTitle() {
-            titleText = titleText.substring(1) + titleText.substring(0, 1);
-            document.title = titleText;
-            setTimeout(scrollTitle, 250);
-        }
-        window.onload = function() {
-            scrollTitle();
-        }
-    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
@@ -34,35 +31,51 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background:
-                radial-gradient(ellipse 900px 500px at 15% -5%, rgba(230,57,70,0.30), transparent 60%),
-                radial-gradient(ellipse 700px 500px at 100% 20%, rgba(212,162,78,0.14), transparent 55%),
+                radial-gradient(ellipse 900px 500px at 15% -5%, rgba(230,57,70,0.24), transparent 60%),
+                radial-gradient(ellipse 700px 500px at 100% 20%, rgba(212,162,78,0.12), transparent 55%),
                 linear-gradient(180deg, var(--wine-950) 0%, var(--wine-900) 45%, var(--wine-950) 100%);
             color: var(--cream);
         }
 
-        .font-display { font-family: 'Fraunces', serif; }
+        .font-display {
+            font-family: 'Fraunces', serif;
+        }
 
         .glass-panel {
-            background: linear-gradient(135deg, rgba(90, 15, 24, 0.55) 0%, rgba(37, 5, 9, 0.75) 100%);
+            background: linear-gradient(
+                135deg,
+                rgba(90, 15, 24, 0.55) 0%,
+                rgba(37, 5, 9, 0.78) 100%
+            );
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(230, 57, 70, 0.25);
+            border: 1px solid rgba(230, 57, 70, 0.22);
         }
+
         .glow-effect {
-            box-shadow: 0 0 70px -20px rgba(230, 57, 70, 0.45);
+            box-shadow: 0 0 70px -20px rgba(230, 57, 70, 0.40);
         }
+
         .ember-gradient {
-            background: linear-gradient(120deg, #fff3e6 0%, var(--gold) 45%, var(--ember-glow) 100%);
+            background: linear-gradient(
+                120deg,
+                #fff3e6 0%,
+                var(--gold) 45%,
+                var(--ember-glow) 100%
+            );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .btn-primary {
             background: linear-gradient(120deg, var(--ember-500), var(--ember-600));
-            box-shadow: 0 10px 35px -8px rgba(230, 57, 70, 0.65);
+            box-shadow: 0 10px 35px -8px rgba(230, 57, 70, 0.60);
         }
-        .btn-primary:hover { filter: brightness(1.1); }
 
-        /* Full-bleed hero video: edge-to-edge on every screen size */
+        .btn-primary:hover {
+            filter: brightness(1.1);
+        }
+
         .hero-video-wrap {
             position: relative;
             width: 100vw;
@@ -72,9 +85,13 @@
             max-height: 820px;
             overflow: hidden;
         }
+
         @media (min-width: 1024px) {
-            .hero-video-wrap { height: 88vh; }
+            .hero-video-wrap {
+                height: 82vh;
+            }
         }
+
         .hero-video-wrap video {
             position: absolute;
             inset: 0;
@@ -82,254 +99,887 @@
             height: 100%;
             object-fit: cover;
         }
+
         .hero-scrim {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(37,5,9,0.55) 0%, rgba(37,5,9,0.15) 35%, rgba(37,5,9,0.35) 70%, var(--wine-950) 100%);
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(37,5,9,0.58) 0%,
+                    rgba(37,5,9,0.12) 35%,
+                    rgba(37,5,9,0.35) 70%,
+                    var(--wine-950) 100%
+                );
+        }
+
+        .menu-card {
+            transition: transform .25s ease, border-color .25s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(230,57,70,.55);
+        }
+
+        .fade-in {
+            animation: fadeIn .45s ease both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body class="text-zinc-100 selection:bg-red-600 selection:text-white min-h-screen antialiased overflow-x-hidden">
 
-    <!-- Header / Navigasi Atas -->
-    <header class="sticky top-0 z-50 bg-[#250509]/85 backdrop-blur-2xl border-b border-red-500/10 px-6 lg:px-20 py-4 flex justify-between items-center transition-all duration-300">
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+    <header class="sticky top-0 z-50 bg-[#250509]/85 backdrop-blur-2xl border-b border-red-500/10 px-6 lg:px-20 py-4 flex justify-between items-center">
+
         <div class="flex items-center space-x-4">
             <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-red-600 via-rose-700 to-[#3a0a10] flex items-center justify-center shadow-xl shadow-red-600/30 border border-red-500/40">
-                <span class="text-white font-black text-xl tracking-tighter font-display">P</span>
+                <span class="text-white font-black text-xl tracking-tighter font-display">F</span>
             </div>
+
             <div>
-                <h1 class="text-sm font-extrabold tracking-[0.25em] text-cream font-display">PAPER & SIP</h1>
-                <p class="text-[9px] tracking-[0.35em] text-red-400 uppercase font-bold">Roastery & Sanctuary</p>
+                <h1 class="text-sm font-extrabold tracking-[0.18em] text-cream font-display">
+                    FU IYOH KOPITIAM
+                </h1>
+                <p class="text-[9px] tracking-[0.30em] text-red-400 uppercase font-bold">
+                    Kopitiam
+                </p>
             </div>
         </div>
 
         <div class="flex items-center space-x-5">
-            <a href="login.html" class="hidden sm:inline-block text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider">
-                ADMIN ACCESS
+            <!-- GANTI href jika halaman admin kamu memiliki nama berbeda -->
+            <a href="login.html"
+               class="hidden sm:inline-block text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider">
+                KELOLA MENU
             </a>
-            <a href="#pesan" class="btn-primary relative rounded-2xl px-6 py-2.5 flex items-center justify-center text-xs font-bold text-white transition-all duration-300">
-                Reserve Table
+
+            <a href="#pesan"
+               class="btn-primary relative rounded-2xl px-6 py-2.5 flex items-center justify-center text-xs font-bold text-white transition-all duration-300">
+                Pesan Sekarang
             </a>
         </div>
     </header>
 
-    <!-- HERO: Video Full-Bleed -->
+
+    <!-- =========================================================
+         HERO
+         GANTI FILE VIDEO: fuiyoh.mp4
+         Gunakan video/foto yang memang kamu punya hak/izin untuk demo.
+         ========================================================= -->
     <section class="relative z-10">
+
         <div class="hero-video-wrap">
+
             <video id="heroVideo" autoplay muted loop playsinline>
-                <source src="testi.mp4" type="video/mp4">
+                <!-- GANTI: gunakan video FU IYOH yang sudah kamu izinkan untuk demo -->
+                <source src="fuiyoh.mp4" type="video/mp4">
+
                 Browser Anda tidak mendukung pemutaran video.
             </video>
+
             <div class="hero-scrim"></div>
 
             <div class="absolute top-6 left-6 z-20 bg-[#250509]/70 backdrop-blur-xl border border-red-500/25 px-5 py-2.5 rounded-2xl text-left shadow-2xl">
                 <div class="flex items-center space-x-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-                    <p class="text-white font-extrabold text-[11px] tracking-widest">LIVE STREAM</p>
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    <p class="text-white font-extrabold text-[11px] tracking-widest">
+                        FU IYOH KOPITIAM
+                    </p>
                 </div>
-                <p class="text-red-300 text-[9px] uppercase font-semibold tracking-wider mt-0.5">Paper & Sip Main Sanctuary</p>
-            </div>
 
-            <button id="btnToggleSuara" class="absolute top-6 right-6 z-20 flex items-center gap-2 bg-[#250509]/70 backdrop-blur-xl border border-red-500/25 px-4 py-2.5 rounded-2xl shadow-2xl text-white text-xs font-bold tracking-wider hover:bg-[#3a0a10]/90 transition">
-                <span id="iconSuara">🔊</span>
-                <span id="labelSuara">Aktifkan Suara</span>
-            </button>
+                <p class="text-red-300 text-[9px] uppercase font-semibold tracking-wider mt-0.5">
+                    Kopitiam & Kuliner
+                </p>
+            </div>
 
             <div class="absolute inset-x-0 bottom-0 pb-10 sm:pb-14 px-6 text-center">
+
                 <div class="inline-flex items-center space-x-2.5 bg-[#250509]/70 border border-red-500/30 px-4 py-1.5 rounded-full mb-5 shadow-2xl backdrop-blur-md">
                     <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                    <span class="text-[#f0d9c4] text-[11px] font-semibold tracking-[0.2em] uppercase">Immersive Coffee Culture</span>
+
+                    <span class="text-[#f0d9c4] text-[11px] font-semibold tracking-[0.2em] uppercase">
+                        Welcome to FU IYOH
+                    </span>
                 </div>
+
                 <h2 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-4xl mx-auto leading-[1.05]">
-                    Where Craftsmanship <br>Meets <span class="ember-gradient">Absolute Luxury</span>
+                    Nikmati Kopitiam
+                    <br>
+                    <span class="ember-gradient">Favorit Anda</span>
                 </h2>
+
+                <p class="max-w-xl mx-auto mt-5 text-sm sm:text-base text-[#f0d9c4] leading-relaxed">
+                    Lihat menu, informasi tempat, lokasi, dan pesan dengan mudah melalui satu halaman resmi.
+                </p>
+
             </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         QUICK INFO
+         ========================================================= -->
+    <section class="relative z-10 px-6 -mt-2 sm:-mt-8">
+
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+
+            <div class="glass-panel rounded-2xl p-5 text-center">
+                <div class="text-2xl mb-2">☕</div>
+                <p class="text-[10px] uppercase tracking-widest text-red-300 font-bold">
+                    Kategori
+                </p>
+                <p class="text-sm font-bold text-white mt-1">
+                    Kopitiam
+                </p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-5 text-center">
+                <div class="text-2xl mb-2">⭐</div>
+                <p class="text-[10px] uppercase tracking-widest text-red-300 font-bold">
+                    Google Rating
+                </p>
+                <p class="text-sm font-bold text-white mt-1">
+                    4,5 / 5
+                </p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-5 text-center">
+                <div class="text-2xl mb-2">📍</div>
+                <p class="text-[10px] uppercase tracking-widest text-red-300 font-bold">
+                    Lokasi
+                </p>
+                <p class="text-sm font-bold text-white mt-1">
+                    Lihat Maps
+                </p>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-5 text-center">
+                <div class="text-2xl mb-2">📱</div>
+                <p class="text-[10px] uppercase tracking-widest text-red-300 font-bold">
+                    Pemesanan
+                </p>
+                <p class="text-sm font-bold text-white mt-1">
+                    WhatsApp
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         MENU
+         Menu diambil dari localStorage.
+         Demo admin kamu dapat mengubah data di browser yang sama.
+         Untuk versi produksi, gunakan database/backend.
+         ========================================================= -->
+    <section id="menu" class="relative z-10 px-6 py-20 max-w-6xl mx-auto">
+
+        <div class="text-center mb-12">
+
+            <span class="text-red-400 font-bold uppercase tracking-[0.3em] text-xs">
+                Menu FU IYOH
+            </span>
+
+            <h3 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 text-white tracking-tight">
+                Pilihan Menu
+            </h3>
+
+            <p class="text-[#d8bfa8] text-sm mt-3 max-w-xl mx-auto">
+                Pilih menu favorit Anda. Harga dan daftar menu dapat dikelola melalui halaman admin.
+            </p>
+
+        </div>
+
+        <div id="daftarMenu"
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         </div>
 
     </section>
 
-    <!-- BAGIAN PEMESANAN ONLINE (Interactive Table Protocol) -->
+
+    <!-- =========================================================
+         PEMESANAN
+         ========================================================= -->
     <section id="pesan" class="relative z-10 px-6 py-16 max-w-4xl mx-auto">
+
         <div class="glass-panel p-8 sm:p-12 rounded-[2.5rem] glow-effect relative overflow-hidden">
+
             <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-red-600/20 rounded-full blur-[100px] pointer-events-none"></div>
 
             <div class="text-center mb-10">
-                <span class="text-red-400 text-xs font-bold tracking-[0.3em] uppercase">Seamless Experience</span>
-                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">Table Ordering Protocol</h3>
-                <p class="text-[#d8bfa8] text-xs mt-2 max-w-md mx-auto">Pilih menu signature kami dan tentukan nomor meja Anda. Pesanan langsung terhubung ke sistem barista.</p>
+
+                <span class="text-red-400 text-xs font-bold tracking-[0.3em] uppercase">
+                    Pesan Dengan Mudah
+                </span>
+
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">
+                    Pesan Menu FU IYOH
+                </h3>
+
+                <p class="text-[#d8bfa8] text-xs mt-2 max-w-md mx-auto">
+                    Pilih menu yang Anda inginkan dan kirim pesanan melalui WhatsApp.
+                </p>
+
             </div>
 
+
             <form onsubmit="kirimPesanan(event)" class="space-y-6">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Nama Tamu</label>
-                        <input type="text" id="namaPemesan" required class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]" placeholder="Masukkan nama Anda...">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Nomor Meja</label>
-                        <input type="text" id="nomorMeja" required class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]" placeholder="Contoh: VIP Table 01">
-                    </div>
-                </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Pilihan Artisan Menu</label>
-                        <select id="pilihanMenu" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner"></select>
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                            Nama
+                        </label>
+
+                        <input
+                            type="text"
+                            id="namaPemesan"
+                            required
+                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]"
+                            placeholder="Masukkan nama..."
+                        >
                     </div>
+
+
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Kuantitas</label>
-                        <input type="number" id="jumlahPesanan" min="1" value="1" required class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                            Nomor Meja
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomorMeja"
+                            required
+                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]"
+                            placeholder="Contoh: Meja 05"
+                        >
                     </div>
+
                 </div>
+
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                    <div class="space-y-2">
+
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                            Pilih Menu
+                        </label>
+
+                        <select
+                            id="pilihanMenu"
+                            required
+                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                        </select>
+
+                    </div>
+
+
+                    <div class="space-y-2">
+
+                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                            Kuantitas
+                        </label>
+
+                        <input
+                            type="number"
+                            id="jumlahPesanan"
+                            min="1"
+                            value="1"
+                            required
+                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner"
+                        >
+
+                    </div>
+
+                </div>
+
 
                 <div class="space-y-2">
-                    <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">Catatan Khusus (Opsional)</label>
-                    <textarea id="catatanPesanan" rows="2" class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]" placeholder="Contoh: Extra shot espresso, suhu hangat..."></textarea>
+
+                    <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                        Catatan Khusus (Opsional)
+                    </label>
+
+                    <textarea
+                        id="catatanPesanan"
+                        rows="2"
+                        class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]"
+                        placeholder="Contoh: kurang es, tanpa gula, dll."
+                    ></textarea>
+
                 </div>
 
-                <button type="submit" class="btn-primary w-full relative rounded-2xl py-4 flex items-center justify-center text-sm font-black text-white tracking-wider transition-all">
-                    KIRIM PESANAN KE BARISTA VIA WHATSAPP 💬
+
+                <button
+                    type="submit"
+                    class="btn-primary w-full relative rounded-2xl py-4 flex items-center justify-center text-sm font-black text-white tracking-wider transition-all">
+                    PESAN SEKARANG VIA WHATSAPP 💬
                 </button>
+
             </form>
         </div>
     </section>
 
-    <!-- Galeri Testimoni Kelas Atas -->
+
+    <!-- =========================================================
+         GALERI
+         GANTI FILE:
+         fuiyoh1.jpeg
+         fuiyoh2.jpeg
+         ...
+         Gunakan foto yang kamu punya hak/izin untuk digunakan.
+         ========================================================= -->
     <section class="relative z-10 px-6 py-20 max-w-7xl mx-auto border-t border-red-500/10">
-        <div class="text-center mb-16">
-            <span class="text-red-400 font-bold uppercase tracking-[0.3em] text-xs">Curated Moments</span>
-            <h4 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 text-white tracking-tight">The Aesthetic Archives</h4>
+
+        <div class="text-center mb-12">
+
+            <span class="text-red-400 font-bold uppercase tracking-[0.3em] text-xs">
+                FU IYOH KOPITIAM
+            </span>
+
+            <h4 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 text-white tracking-tight">
+                Suasana & Pilihan Kami
+            </h4>
+
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-            <script>
-                for (let i = 1; i <= 17; i++) {
-                    document.write(`
-                        <div class="glass-panel rounded-2xl overflow-hidden group hover:border-red-500/60 transition duration-500 shadow-xl">
-                            <div class="h-52 bg-[#250509] overflow-hidden relative">
-                                <img src="testi${i}.jpeg" alt="Testimoni ${i}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90 group-hover:opacity-100">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#250509]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                                    <span class="text-[10px] font-extrabold text-red-300 tracking-wider">#PAPERMOMENT ${i}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
+
+        <div id="galeri"
+             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
         </div>
+
     </section>
 
-    <!-- Kontak & Lokasi Mewah -->
+
+    <!-- =========================================================
+         TENTANG
+         ========================================================= -->
+    <section class="relative z-10 px-6 py-20 max-w-4xl mx-auto">
+
+        <div class="glass-panel p-10 sm:p-14 rounded-[2.5rem]">
+
+            <div class="text-center">
+
+                <span class="text-red-400 text-xs font-bold tracking-[0.3em] uppercase">
+                    Tentang FU IYOH
+                </span>
+
+                <h3 class="font-display text-3xl sm:text-4xl font-black mt-3 text-white">
+                    Kopitiam Favorit Anda
+                </h3>
+
+                <p class="text-[#d8bfa8] text-sm leading-7 mt-6 max-w-2xl mx-auto">
+                    GANTI TEKS INI dengan deskripsi resmi FU IYOH.
+                    Untuk demo awal, gunakan deskripsi singkat dan jangan mengarang
+                    informasi yang belum kamu dapatkan dari owner.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         LOKASI & KONTAK
+         ========================================================= -->
     <section id="kontak" class="relative z-10 px-6 py-20 max-w-4xl mx-auto text-center border-t border-red-500/10">
+
         <div class="glass-panel p-10 sm:p-14 rounded-[2.5rem] relative overflow-hidden">
-            <h3 class="font-display text-2xl sm:text-3xl font-black mb-4 text-white">📍 The Sanctuary Location</h3>
-            <p class="text-[#d8bfa8] mb-8 text-sm leading-relaxed max-w-md mx-auto">Jl. Braga No. 45, Kota Bandung<br>Operational Hours: 08.00 - 23.00 WIB (Everyday)</p>
-            <a href="https://wa.me/6283874795123?text=Halo%20Paper%20and%20Sip,%20saya%20mau%20reservasi%20tempat" target="_blank" class="inline-block bg-[#3a0a10] hover:bg-[#5a0f18] text-white border border-red-500/30 font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
-                Direct Concierge WhatsApp
-            </a>
+
+            <h3 class="font-display text-2xl sm:text-3xl font-black mb-4 text-white">
+                📍 Lokasi FU IYOH Kopitiam
+            </h3>
+
+            <p class="text-[#d8bfa8] mb-8 text-sm leading-relaxed max-w-md mx-auto">
+
+                <!-- GANTI ALAMAT DENGAN ALAMAT RESMI -->
+                GANTI DENGAN ALAMAT FU IYOH
+                <br>
+
+                <!-- GANTI JAM DENGAN JAM RESMI -->
+                GANTI DENGAN JAM OPERASIONAL
+
+            </p>
+
+
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+
+                <!-- GANTI LINK MAPS DENGAN LINK RESMI FU IYOH -->
+                <a
+                    href="GANTI_LINK_GOOGLE_MAPS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block bg-[#3a0a10] hover:bg-[#5a0f18] text-white border border-red-500/30 font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
+                    📍 Buka Google Maps
+                </a>
+
+
+                
+                <!-- GANTI NOMOR WA -->
+                <a
+                    href="https://wa.me/628XXXXXXXXXX?text=Halo%20FU%20IYOH%20Kopitiam%2C%20saya%20ingin%20bertanya."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary inline-block text-white font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
+                    💬 WhatsApp
+                </a>
+
+            </div>
+
         </div>
+
     </section>
 
-    <!-- Footer -->
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
     <footer class="relative z-10 text-center py-10 border-t border-red-500/10 text-[#a8817a] text-xs bg-[#1c0407]">
-        <p>&copy; 2026 PAPER & SIP. All Rights Reserved. Crafted for High-End Experience.</p>
+
+        <p>
+            &copy; 2026 FU IYOH Kopitiam. All Rights Reserved.
+        </p>
+
+        <p class="mt-2 text-[10px] opacity-60">
+            DEMO WEBSITE — KONSEP UNTUK FU IYOH
+        </p>
+
     </footer>
 
-    <!-- Script Toggle Suara Video Hero -->
-    <script>
-        const heroVideo = document.getElementById('heroVideo');
-        const btnToggleSuara = document.getElementById('btnToggleSuara');
-        const iconSuara = document.getElementById('iconSuara');
-        const labelSuara = document.getElementById('labelSuara');
 
-        btnToggleSuara.addEventListener('click', () => {
-            if (heroVideo.muted) {
-                heroVideo.muted = false;
-                heroVideo.volume = 1;
-                heroVideo.play();
-                iconSuara.textContent = '🔇';
-                labelSuara.textContent = 'Matikan Suara';
-            } else {
-                heroVideo.muted = true;
-                iconSuara.textContent = '🔊';
-                labelSuara.textContent = 'Aktifkan Suara';
-            }
-        });
+    <!-- =========================================================
+         DATA KONFIGURASI
+         ========================================================= -->
+    <script>
+
+        /*
+         * =======================================================
+         * KONFIGURASI UTAMA
+         * =======================================================
+         */
+
+        const CONFIG = {
+
+            /*
+             * GANTI nomor WhatsApp FU IYOH.
+             * Format:
+             * 628xxxxxxxxxx
+             * Jangan pakai +, spasi, atau tanda -
+             */
+            whatsapp: "628XXXXXXXXXX",
+
+            /*
+             * GANTI link Google Maps FU IYOH.
+             */
+            googleMaps: "GANTI_LINK_GOOGLE_MAPS",
+
+            /*
+             * Nama bisnis.
+             */
+            businessName: "FU IYOH Kopitiam"
+
+        };
+
     </script>
 
-    <!-- Script Menu Dinamis & Pengiriman Pesanan -->
-    <script>
-        const KEY_PRODUK = 'daftarProduk';
 
+    <!-- =========================================================
+         MENU DINAMIS
+         ========================================================= -->
+    <script>
+
+        const KEY_PRODUK = "daftarProduk";
+
+
+        /*
+         * DATA DEMO
+         *
+         * PENTING:
+         * GANTI nama dan harga di bawah dengan MENU ASLI FU IYOH
+         * setelah kamu mendapat data yang benar dari owner.
+         *
+         * Untuk demo awal, jangan mengarang menu/harga.
+         */
         function seedProdukJikaKosong() {
+
             const existing = localStorage.getItem(KEY_PRODUK);
+
             if (!existing) {
+
                 const defaultProduk = [
-                    { id: 'p_default_1', name: 'Butter Croissant', price: 22000 },
-                    { id: 'p_default_2', name: 'Caffè Latte', price: 28000 },
-                    { id: 'p_default_3', name: 'Almond Croissant', price: 30000 },
-                    { id: 'p_default_4', name: 'Espresso', price: 20000 }
+
+                    {
+                        id: "fuiyoh_demo_1",
+                        name: "GANTI MENU 1",
+                        price: 0
+                    },
+
+                    {
+                        id: "fuiyoh_demo_2",
+                        name: "GANTI MENU 2",
+                        price: 0
+                    },
+
+                    {
+                        id: "fuiyoh_demo_3",
+                        name: "GANTI MENU 3",
+                        price: 0
+                    },
+
+                    {
+                        id: "fuiyoh_demo_4",
+                        name: "GANTI MENU 4",
+                        price: 0
+                    }
+
                 ];
-                localStorage.setItem(KEY_PRODUK, JSON.stringify(defaultProduk));
+
+                localStorage.setItem(
+                    KEY_PRODUK,
+                    JSON.stringify(defaultProduk)
+                );
             }
         }
 
+
         function formatRupiah(angka) {
-            return 'Rp ' + Number(angka).toLocaleString('id-ID');
+
+            return "Rp " + Number(angka).toLocaleString("id-ID");
+
         }
 
+
         function muatMenu() {
+
             seedProdukJikaKosong();
-            const produk = JSON.parse(localStorage.getItem(KEY_PRODUK)) || [];
-            const select = document.getElementById('pilihanMenu');
-            select.innerHTML = '';
+
+            const produk =
+                JSON.parse(localStorage.getItem(KEY_PRODUK)) || [];
+
+            const select =
+                document.getElementById("pilihanMenu");
+
+            const daftarMenu =
+                document.getElementById("daftarMenu");
+
+            select.innerHTML = "";
+            daftarMenu.innerHTML = "";
+
 
             if (produk.length === 0) {
-                const opt = document.createElement('option');
-                opt.textContent = 'Menu belum tersedia';
+
+                const opt =
+                    document.createElement("option");
+
+                opt.textContent = "Menu belum tersedia";
                 opt.disabled = true;
+
                 select.appendChild(opt);
+
+                daftarMenu.innerHTML = `
+                    <div class="col-span-full text-center text-[#d8bfa8]">
+                        Menu belum tersedia.
+                    </div>
+                `;
+
                 return;
             }
 
-            produk.forEach(item => {
-                const opt = document.createElement('option');
-                opt.value = `${item.name} (${formatRupiah(item.price)})`;
-                opt.textContent = `${item.name} - ${formatRupiah(item.price)}`;
+
+            produk.forEach((item) => {
+
+                /*
+                 * OPTION PEMESANAN
+                 */
+                const opt =
+                    document.createElement("option");
+
+                opt.value =
+                    `${item.name} (${formatRupiah(item.price)})`;
+
+                opt.textContent =
+                    `${item.name} - ${formatRupiah(item.price)}`;
+
                 select.appendChild(opt);
+
+
+                /*
+                 * CARD MENU
+                 */
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "menu-card glass-panel rounded-3xl p-6 fade-in";
+
+                card.innerHTML = `
+
+                    <div class="w-12 h-12 rounded-2xl bg-red-600/15 border border-red-500/20 flex items-center justify-center text-2xl mb-5">
+                        ☕
+                    </div>
+
+                    <h4 class="text-lg font-bold text-white">
+                        ${escapeHtml(item.name)}
+                    </h4>
+
+                    <p class="text-red-300 font-extrabold mt-3">
+                        ${formatRupiah(item.price)}
+                    </p>
+
+                `;
+
+                daftarMenu.appendChild(card);
+
             });
+
         }
+
+
+        /*
+         * Mencegah HTML dari data menu masuk langsung ke innerHTML.
+         */
+        function escapeHtml(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
 
         muatMenu();
+
     </script>
 
+
+    <!-- =========================================================
+         GALERI DINAMIS
+         ========================================================= -->
     <script>
-        function kirimPesanan(e) {
-            e.preventDefault();
-            const nama = document.getElementById('namaPemesan').value;
-            const meja = document.getElementById('nomorMeja').value;
-            const menu = document.getElementById('pilihanMenu').value;
-            const jumlah = document.getElementById('jumlahPesanan').value;
-            const catatan = document.getElementById('catatanPesanan').value || 'Tidak ada catatan';
 
-            let orders = JSON.parse(localStorage.getItem('daftarPesanan')) || [];
-            orders.push({
-                customer: nama,
-                table: meja,
-                orderDetails: `${jumlah}x ${menu}`,
-                note: catatan,
-                status: "Baru",
-                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-            });
-            localStorage.setItem('daftarPesanan', JSON.stringify(orders));
+        function muatGaleri() {
 
-            const nomorWa = '6283874795123';
-            const pesan = `Halo Paper & Sip, pesanan baru:\n\n*Nama:* ${nama}\n*Nomor Meja:* ${meja}\n*Menu:* ${jumlah}x ${menu}\n*Catatan:* ${catatan}`;
+            const galeri =
+                document.getElementById("galeri");
 
-            const urlWa = `https://wa.me/${nomorWa}?text=${encodeURIComponent(pesan)}`;
-            window.open(urlWa, '_blank');
+            /*
+             * GANTI file foto sesuai file yang kamu punya.
+             * Contoh:
+             * fuiyoh1.jpeg
+             * fuiyoh2.jpeg
+             * dst.
+             */
+            const jumlahFoto = 8;
+
+            for (let i = 1; i <= jumlahFoto; i++) {
+
+                const wrapper =
+                    document.createElement("div");
+
+                wrapper.className =
+                    "glass-panel rounded-2xl overflow-hidden group shadow-xl";
+
+                const img =
+                    document.createElement("img");
+
+                img.src = `fuiyoh${i}.jpeg`;
+
+                img.alt =
+                    `FU IYOH Kopitiam ${i}`;
+
+                img.className =
+                    "w-full h-56 object-cover group-hover:scale-105 transition duration-700";
+
+                /*
+                 * Kalau file belum ada, kartu tidak membuat halaman rusak.
+                 */
+                img.onerror = function () {
+
+                    wrapper.style.display = "none";
+
+                };
+
+                wrapper.appendChild(img);
+
+                galeri.appendChild(wrapper);
+
+            }
+
         }
+
+
+        muatGaleri();
+
     </script>
+
+
+    <!-- =========================================================
+         PEMESANAN WHATSAPP
+         ========================================================= -->
+    <script>
+
+        function kirimPesanan(e) {
+
+            e.preventDefault();
+
+
+            const nama =
+                document.getElementById("namaPemesan").value.trim();
+
+            const meja =
+                document.getElementById("nomorMeja").value.trim();
+
+            const menu =
+                document.getElementById("pilihanMenu").value;
+
+            const jumlah =
+                document.getElementById("jumlahPesanan").value;
+
+            const catatan =
+                document.getElementById("catatanPesanan").value.trim()
+                || "Tidak ada catatan";
+
+
+            /*
+             * Menyimpan order di localStorage.
+             *
+             * Untuk DEMO: OK.
+             *
+             * Untuk PRODUKSI:
+             * gunakan database/backend supaya order dapat
+             * dilihat admin dari perangkat lain.
+             */
+            let orders =
+                JSON.parse(
+                    localStorage.getItem("daftarPesanan")
+                ) || [];
+
+
+            orders.push({
+
+                customer: nama,
+
+                table: meja,
+
+                orderDetails:
+                    `${jumlah}x ${menu}`,
+
+                note: catatan,
+
+                status: "Baru",
+
+                time:
+                    new Date().toLocaleTimeString(
+                        "id-ID",
+                        {
+                            hour: "2-digit",
+                            minute: "2-digit"
+                        }
+                    )
+
+            });
+
+
+            localStorage.setItem(
+                "daftarPesanan",
+                JSON.stringify(orders)
+            );
+
+
+            /*
+             * Pesan WhatsApp
+             */
+            const pesan =
+`Halo FU IYOH Kopitiam, saya ingin melakukan pemesanan.
+
+*Nama:* ${nama}
+*Nomor Meja:* ${meja}
+*Menu:* ${jumlah}x ${menu}
+*Catatan:* ${catatan}`;
+
+
+            /*
+             * Validasi sederhana
+             */
+            if (
+                !CONFIG.whatsapp ||
+                CONFIG.whatsapp.includes("X")
+            ) {
+
+                alert(
+                    "Nomor WhatsApp FU IYOH belum diatur. Silakan isi CONFIG.whatsapp terlebih dahulu."
+                );
+
+                return;
+            }
+
+
+            const urlWa =
+                `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(pesan)}`;
+
+
+            window.open(
+                urlWa,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        }
+
+    </script>
+
+
+    <!-- =========================================================
+         UPDATE LINK GOOGLE MAPS DARI CONFIG
+         ========================================================= -->
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const mapLinks =
+                    document.querySelectorAll(
+                        'a[href="GANTI_LINK_GOOGLE_MAPS"]'
+                    );
+
+                mapLinks.forEach(
+                    (link) => {
+
+                        link.href =
+                            CONFIG.googleMaps;https://maps.app.goo.gl/aUaikCDw83AFGt6F6?g_st=ac
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
 </body>
 </html>
-
