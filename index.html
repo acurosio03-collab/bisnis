@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -5,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- =========================================================
-         FU IYOH KOPITIAM - DEMO WEBSITE
+         FU IYOH KOPITIAM - DEMO WEBSITE (REVISI v2)
          GANTI BAGIAN YANG DITANDAI "GANTI" SEBELUM DIKIRIM KE OWNER
+
+         CATATAN PENTING:
+         - Foto produk & video hero di bawah ini MASIH PLACEHOLDER
+           (ilustrasi CSS, bukan foto/video asli FU IYOH).
+         - Ganti begitu kamu punya foto & video asli dari owner.
+           Instruksi cara ganti ada di komentar masing-masing bagian.
          ========================================================= -->
 
     <title>☕ FU IYOH Kopitiam | Kopitiam & Kuliner</title>
@@ -17,23 +24,25 @@
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --wine-950: #250509;
-            --wine-900: #3a0a10;
-            --wine-800: #5a0f18;
-            --ember-500: #e63946;
-            --ember-600: #c1121f;
-            --ember-glow: #ff5a5f;
-            --cream: #f6e9d8;
-            --cream-dim: #d8bfa8;
-            --gold: #d4a24e;
+            /* ==== PALET BARU: lebih merah & hidup, nggak keliatan hitam ==== */
+            --wine-950: #4a0e13;
+            --wine-900: #6b1620;
+            --wine-800: #8a1f2b;
+            --ember-500: #ef4444;
+            --ember-600: #dc2626;
+            --ember-glow: #ff6b6b;
+            --cream: #fff3e6;
+            --cream-dim: #f0d0b8;
+            --gold: #ffb648;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background:
-                radial-gradient(ellipse 900px 500px at 15% -5%, rgba(230,57,70,0.24), transparent 60%),
-                radial-gradient(ellipse 700px 500px at 100% 20%, rgba(212,162,78,0.12), transparent 55%),
-                linear-gradient(180deg, var(--wine-950) 0%, var(--wine-900) 45%, var(--wine-950) 100%);
+                radial-gradient(ellipse 1000px 600px at 15% -5%, rgba(239,68,68,0.38), transparent 62%),
+                radial-gradient(ellipse 800px 600px at 100% 15%, rgba(255,182,72,0.20), transparent 55%),
+                radial-gradient(ellipse 900px 700px at 50% 100%, rgba(220,38,38,0.28), transparent 60%),
+                linear-gradient(180deg, var(--wine-950) 0%, var(--wine-800) 45%, var(--wine-950) 100%);
             color: var(--cream);
         }
 
@@ -44,16 +53,16 @@
         .glass-panel {
             background: linear-gradient(
                 135deg,
-                rgba(90, 15, 24, 0.55) 0%,
-                rgba(37, 5, 9, 0.78) 100%
+                rgba(138, 31, 43, 0.55) 0%,
+                rgba(74, 14, 19, 0.78) 100%
             );
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(230, 57, 70, 0.22);
+            border: 1px solid rgba(239, 68, 68, 0.28);
         }
 
         .glow-effect {
-            box-shadow: 0 0 70px -20px rgba(230, 57, 70, 0.40);
+            box-shadow: 0 0 80px -18px rgba(239, 68, 68, 0.55);
         }
 
         .ember-gradient {
@@ -69,13 +78,22 @@
 
         .btn-primary {
             background: linear-gradient(120deg, var(--ember-500), var(--ember-600));
-            box-shadow: 0 10px 35px -8px rgba(230, 57, 70, 0.60);
+            box-shadow: 0 10px 35px -8px rgba(239, 68, 68, 0.70);
         }
 
         .btn-primary:hover {
-            filter: brightness(1.1);
+            filter: brightness(1.12);
         }
 
+        /* =========================================================
+           HERO VISUAL (PENGGANTI VIDEO)
+           Ini ilustrasi CSS/SVG sementara karena belum ada video asli.
+
+           CARA GANTI KE VIDEO ASLI NANTI:
+           1. Taruh file video (misal fuiyoh.mp4) di folder yang sama
+           2. Hapus <div class="hero-visual-fallback">...</div>
+           3. Un-comment blok <video> di bawahnya (hapus <!-- dan -->)
+           ========================================================= */
         .hero-video-wrap {
             position: relative;
             width: 100vw;
@@ -84,6 +102,10 @@
             min-height: 380px;
             max-height: 820px;
             overflow: hidden;
+            background:
+                radial-gradient(ellipse 700px 500px at 20% 20%, rgba(255,107,107,0.35), transparent 60%),
+                radial-gradient(ellipse 600px 500px at 85% 75%, rgba(255,182,72,0.25), transparent 55%),
+                linear-gradient(160deg, var(--wine-900) 0%, var(--wine-950) 60%, #2e070b 100%);
         }
 
         @media (min-width: 1024px) {
@@ -100,15 +122,46 @@
             object-fit: cover;
         }
 
+        .hero-visual-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .hero-visual-fallback svg {
+            width: min(60vw, 420px);
+            height: auto;
+            filter: drop-shadow(0 25px 45px rgba(0,0,0,0.45));
+        }
+
+        .steam {
+            transform-origin: center bottom;
+            animation: steamRise 3.2s ease-in-out infinite;
+            opacity: 0;
+        }
+        .steam-1 { animation-delay: 0s; }
+        .steam-2 { animation-delay: 0.8s; }
+        .steam-3 { animation-delay: 1.6s; }
+
+        @keyframes steamRise {
+            0%   { transform: translateY(0) scaleX(1); opacity: 0; }
+            15%  { opacity: 0.55; }
+            50%  { transform: translateY(-22px) scaleX(1.4); opacity: 0.35; }
+            100% { transform: translateY(-46px) scaleX(1.8); opacity: 0; }
+        }
+
         .hero-scrim {
             position: absolute;
             inset: 0;
             background:
                 linear-gradient(
                     180deg,
-                    rgba(37,5,9,0.58) 0%,
-                    rgba(37,5,9,0.12) 35%,
-                    rgba(37,5,9,0.35) 70%,
+                    rgba(74,14,19,0.45) 0%,
+                    rgba(74,14,19,0.05) 35%,
+                    rgba(74,14,19,0.30) 70%,
                     var(--wine-950) 100%
                 );
         }
@@ -119,7 +172,40 @@
 
         .menu-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(230,57,70,.55);
+            border-color: rgba(239,68,68,.6);
+        }
+
+        /* =========================================================
+           GALERI PLACEHOLDER
+           Kartu ilustrasi pengganti foto asli.
+           CARA GANTI KE FOTO ASLI NANTI: lihat komentar di skrip
+           "GALERI DINAMIS" di bagian bawah file ini.
+           ========================================================= */
+        .gallery-placeholder {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(255,182,72,0.22), transparent 55%),
+                linear-gradient(150deg, var(--wine-800), var(--wine-950));
+        }
+
+        .gallery-placeholder .emoji {
+            font-size: 2.2rem;
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+        }
+
+        .gallery-placeholder .label {
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--cream-dim);
+            text-align: center;
+            padding: 0 10px;
         }
 
         .fade-in {
@@ -144,10 +230,10 @@
     <!-- =========================================================
          HEADER
          ========================================================= -->
-    <header class="sticky top-0 z-50 bg-[#250509]/85 backdrop-blur-2xl border-b border-red-500/10 px-6 lg:px-20 py-4 flex justify-between items-center">
+    <header class="sticky top-0 z-50 bg-[#4a0e13]/85 backdrop-blur-2xl border-b border-red-500/15 px-6 lg:px-20 py-4 flex justify-between items-center">
 
         <div class="flex items-center space-x-4">
-            <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-red-600 via-rose-700 to-[#3a0a10] flex items-center justify-center shadow-xl shadow-red-600/30 border border-red-500/40">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-red-500 via-rose-600 to-[#6b1620] flex items-center justify-center shadow-xl shadow-red-600/40 border border-red-400/40">
                 <span class="text-white font-black text-xl tracking-tighter font-display">F</span>
             </div>
 
@@ -155,7 +241,7 @@
                 <h1 class="text-sm font-extrabold tracking-[0.18em] text-cream font-display">
                     FU IYOH KOPITIAM
                 </h1>
-                <p class="text-[9px] tracking-[0.30em] text-red-400 uppercase font-bold">
+                <p class="text-[9px] tracking-[0.30em] text-red-300 uppercase font-bold">
                     Kopitiam
                 </p>
             </div>
@@ -164,7 +250,7 @@
         <div class="flex items-center space-x-5">
             <!-- GANTI href jika halaman admin kamu memiliki nama berbeda -->
             <a href="login.html"
-               class="hidden sm:inline-block text-xs font-semibold text-[#d8bfa8] hover:text-white transition tracking-wider">
+               class="hidden sm:inline-block text-xs font-semibold text-[#f0d0b8] hover:text-white transition tracking-wider">
                 KELOLA MENU
             </a>
 
@@ -178,41 +264,68 @@
 
     <!-- =========================================================
          HERO
-         GANTI FILE VIDEO: fuiyoh.mp4
-         Gunakan video/foto yang memang kamu punya hak/izin untuk demo.
+         Saat ini pakai ilustrasi CSS/SVG (belum ada video asli).
+         Cara ganti ke video: lihat komentar di CSS ".hero-video-wrap" di atas.
          ========================================================= -->
     <section class="relative z-10">
 
         <div class="hero-video-wrap">
 
-            <video id="heroVideo" autoplay muted loop playsinline>
-                <!-- GANTI: gunakan video FU IYOH yang sudah kamu izinkan untuk demo -->
-                <source src="fuiyoh.mp4" type="video/mp4">
+            <!-- ILUSTRASI SEMENTARA (hapus kalau video asli sudah siap) -->
+            <div class="hero-visual-fallback">
+                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <g class="steam steam-1">
+                        <path d="M120 120 Q110 100 122 85 Q134 70 122 55" stroke="#fff3e6" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                    </g>
+                    <g class="steam steam-2">
+                        <path d="M150 115 Q140 95 152 80 Q164 65 152 50" stroke="#fff3e6" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                    </g>
+                    <g class="steam steam-3">
+                        <path d="M180 120 Q170 100 182 85 Q194 70 182 55" stroke="#fff3e6" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                    </g>
 
+                    <!-- piring -->
+                    <ellipse cx="150" cy="235" rx="95" ry="14" fill="#2e070b" opacity="0.5"/>
+                    <!-- cangkir -->
+                    <path d="M75 140 h150 v45 a75 75 0 0 1 -150 0 z" fill="#ffb648"/>
+                    <path d="M75 140 h150 v18 h-150 z" fill="#ff6b6b"/>
+                    <!-- pegangan -->
+                    <path d="M225 155 q35 5 35 35 q0 30 -35 30" stroke="#ffb648" stroke-width="10" fill="none" stroke-linecap="round"/>
+                    <!-- alas cangkir -->
+                    <rect x="60" y="222" width="180" height="16" rx="8" fill="#fff3e6"/>
+                </svg>
+            </div>
+
+            <!--
+            VIDEO ASLI (aktifkan kalau file video sudah ada):
+
+            <video id="heroVideo" autoplay muted loop playsinline>
+                <source src="fuiyoh.mp4" type="video/mp4">
                 Browser Anda tidak mendukung pemutaran video.
             </video>
+            -->
 
             <div class="hero-scrim"></div>
 
-            <div class="absolute top-6 left-6 z-20 bg-[#250509]/70 backdrop-blur-xl border border-red-500/25 px-5 py-2.5 rounded-2xl text-left shadow-2xl">
+            <div class="absolute top-6 left-6 z-20 bg-[#4a0e13]/70 backdrop-blur-xl border border-red-400/30 px-5 py-2.5 rounded-2xl text-left shadow-2xl">
                 <div class="flex items-center space-x-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
                     <p class="text-white font-extrabold text-[11px] tracking-widest">
                         FU IYOH KOPITIAM
                     </p>
                 </div>
 
-                <p class="text-red-300 text-[9px] uppercase font-semibold tracking-wider mt-0.5">
+                <p class="text-red-200 text-[9px] uppercase font-semibold tracking-wider mt-0.5">
                     Kopitiam & Kuliner
                 </p>
             </div>
 
             <div class="absolute inset-x-0 bottom-0 pb-10 sm:pb-14 px-6 text-center">
 
-                <div class="inline-flex items-center space-x-2.5 bg-[#250509]/70 border border-red-500/30 px-4 py-1.5 rounded-full mb-5 shadow-2xl backdrop-blur-md">
-                    <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <div class="inline-flex items-center space-x-2.5 bg-[#4a0e13]/70 border border-red-400/35 px-4 py-1.5 rounded-full mb-5 shadow-2xl backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
 
-                    <span class="text-[#f0d9c4] text-[11px] font-semibold tracking-[0.2em] uppercase">
+                    <span class="text-[#ffe4cc] text-[11px] font-semibold tracking-[0.2em] uppercase">
                         Welcome to FU IYOH
                     </span>
                 </div>
@@ -223,7 +336,7 @@
                     <span class="ember-gradient">Favorit Anda</span>
                 </h2>
 
-                <p class="max-w-xl mx-auto mt-5 text-sm sm:text-base text-[#f0d9c4] leading-relaxed">
+                <p class="max-w-xl mx-auto mt-5 text-sm sm:text-base text-[#ffe4cc] leading-relaxed">
                     Lihat menu, informasi tempat, lokasi, dan pesan dengan mudah melalui satu halaman resmi.
                 </p>
 
@@ -259,7 +372,7 @@
                 </p>
             </div>
 
-            <div class="glass-panel rounded-2xl p-5 text-center">
+            <a href="GANTI_LINK_GOOGLE_MAPS" target="_blank" rel="noopener noreferrer" class="glass-panel rounded-2xl p-5 text-center hover:border-red-400/60 transition">
                 <div class="text-2xl mb-2">📍</div>
                 <p class="text-[10px] uppercase tracking-widest text-red-300 font-bold">
                     Lokasi
@@ -267,7 +380,7 @@
                 <p class="text-sm font-bold text-white mt-1">
                     Lihat Maps
                 </p>
-            </div>
+            </a>
 
             <div class="glass-panel rounded-2xl p-5 text-center">
                 <div class="text-2xl mb-2">📱</div>
@@ -286,14 +399,14 @@
     <!-- =========================================================
          MENU
          Menu diambil dari localStorage.
-         Demo admin kamu dapat mengubah data di browser yang sama.
-         Untuk versi produksi, gunakan database/backend.
+         DATA DI BAWAH INI CONTOH/DUMMY buat demo tampilan.
+         GANTI dengan menu & harga ASLI dari owner sebelum dipakai beneran.
          ========================================================= -->
     <section id="menu" class="relative z-10 px-6 py-20 max-w-6xl mx-auto">
 
         <div class="text-center mb-12">
 
-            <span class="text-red-400 font-bold uppercase tracking-[0.3em] text-xs">
+            <span class="text-red-300 font-bold uppercase tracking-[0.3em] text-xs">
                 Menu FU IYOH
             </span>
 
@@ -301,7 +414,7 @@
                 Pilihan Menu
             </h3>
 
-            <p class="text-[#d8bfa8] text-sm mt-3 max-w-xl mx-auto">
+            <p class="text-[#f0d0b8] text-sm mt-3 max-w-xl mx-auto">
                 Pilih menu favorit Anda. Harga dan daftar menu dapat dikelola melalui halaman admin.
             </p>
 
@@ -321,11 +434,11 @@
 
         <div class="glass-panel p-8 sm:p-12 rounded-[2.5rem] glow-effect relative overflow-hidden">
 
-            <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-red-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-red-500/25 rounded-full blur-[100px] pointer-events-none"></div>
 
             <div class="text-center mb-10">
 
-                <span class="text-red-400 text-xs font-bold tracking-[0.3em] uppercase">
+                <span class="text-red-300 text-xs font-bold tracking-[0.3em] uppercase">
                     Pesan Dengan Mudah
                 </span>
 
@@ -333,7 +446,7 @@
                     Pesan Menu FU IYOH
                 </h3>
 
-                <p class="text-[#d8bfa8] text-xs mt-2 max-w-md mx-auto">
+                <p class="text-[#f0d0b8] text-xs mt-2 max-w-md mx-auto">
                     Pilih menu yang Anda inginkan dan kirim pesanan melalui WhatsApp.
                 </p>
 
@@ -345,7 +458,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                        <label class="block text-xs font-bold text-[#ffe4cc] uppercase tracking-wider">
                             Nama
                         </label>
 
@@ -353,14 +466,14 @@
                             type="text"
                             id="namaPemesan"
                             required
-                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]"
+                            class="w-full bg-[#6b1620]/70 border border-red-400/25 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-400 transition shadow-inner placeholder:text-[#c99a8c]"
                             placeholder="Masukkan nama..."
                         >
                     </div>
 
 
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                        <label class="block text-xs font-bold text-[#ffe4cc] uppercase tracking-wider">
                             Nomor Meja
                         </label>
 
@@ -368,7 +481,7 @@
                             type="text"
                             id="nomorMeja"
                             required
-                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]"
+                            class="w-full bg-[#6b1620]/70 border border-red-400/25 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-400 transition shadow-inner placeholder:text-[#c99a8c]"
                             placeholder="Contoh: Meja 05"
                         >
                     </div>
@@ -380,22 +493,21 @@
 
                     <div class="space-y-2">
 
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                        <label class="block text-xs font-bold text-[#ffe4cc] uppercase tracking-wider">
                             Pilih Menu
                         </label>
 
                         <select
                             id="pilihanMenu"
                             required
-                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner">
+                            class="w-full bg-[#6b1620]/70 border border-red-400/25 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-400 transition shadow-inner">
                         </select>
 
                     </div>
 
-
                     <div class="space-y-2">
 
-                        <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                        <label class="block text-xs font-bold text-[#ffe4cc] uppercase tracking-wider">
                             Kuantitas
                         </label>
 
@@ -405,7 +517,7 @@
                             min="1"
                             value="1"
                             required
-                            class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner"
+                            class="w-full bg-[#6b1620]/70 border border-red-400/25 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-400 transition shadow-inner"
                         >
 
                     </div>
@@ -415,14 +527,14 @@
 
                 <div class="space-y-2">
 
-                    <label class="block text-xs font-bold text-[#f0d9c4] uppercase tracking-wider">
+                    <label class="block text-xs font-bold text-[#ffe4cc] uppercase tracking-wider">
                         Catatan Khusus (Opsional)
                     </label>
 
                     <textarea
                         id="catatanPesanan"
                         rows="2"
-                        class="w-full bg-[#3a0a10]/70 border border-red-500/20 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-500 transition shadow-inner placeholder:text-[#a8817a]"
+                        class="w-full bg-[#6b1620]/70 border border-red-400/25 rounded-2xl px-5 py-3.5 text-sm text-white focus:outline-none focus:border-red-400 transition shadow-inner placeholder:text-[#c99a8c]"
                         placeholder="Contoh: kurang es, tanpa gula, dll."
                     ></textarea>
 
@@ -442,23 +554,30 @@
 
     <!-- =========================================================
          GALERI
-         GANTI FILE:
-         fuiyoh1.jpeg
-         fuiyoh2.jpeg
-         ...
-         Gunakan foto yang kamu punya hak/izin untuk digunakan.
+         Saat ini pakai kartu ILUSTRASI PLACEHOLDER (bukan foto asli),
+         karena belum ada foto FU IYOH yang bisa dipakai.
+
+         CARA GANTI KE FOTO ASLI NANTI:
+         1. Siapkan file foto, misal: fuiyoh1.jpeg, fuiyoh2.jpeg, dst.
+         2. Taruh di folder yang sama dengan file ini.
+         3. Di skrip "GALERI DINAMIS" di bawah, ganti PAKAI_FOTO_ASLI
+            dari false menjadi true.
          ========================================================= -->
-    <section class="relative z-10 px-6 py-20 max-w-7xl mx-auto border-t border-red-500/10">
+    <section class="relative z-10 px-6 py-20 max-w-7xl mx-auto border-t border-red-500/15">
 
         <div class="text-center mb-12">
 
-            <span class="text-red-400 font-bold uppercase tracking-[0.3em] text-xs">
+            <span class="text-red-300 font-bold uppercase tracking-[0.3em] text-xs">
                 FU IYOH KOPITIAM
             </span>
 
             <h4 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 text-white tracking-tight">
                 Suasana & Pilihan Kami
             </h4>
+
+            <p class="text-[#f0d0b8] text-xs mt-3 max-w-md mx-auto">
+                *Gambar di bawah masih ilustrasi contoh, akan diganti foto asli.
+            </p>
 
         </div>
 
@@ -479,7 +598,7 @@
 
             <div class="text-center">
 
-                <span class="text-red-400 text-xs font-bold tracking-[0.3em] uppercase">
+                <span class="text-red-300 text-xs font-bold tracking-[0.3em] uppercase">
                     Tentang FU IYOH
                 </span>
 
@@ -487,7 +606,7 @@
                     Kopitiam Favorit Anda
                 </h3>
 
-                <p class="text-[#d8bfa8] text-sm leading-7 mt-6 max-w-2xl mx-auto">
+                <p class="text-[#f0d0b8] text-sm leading-7 mt-6 max-w-2xl mx-auto">
                     GANTI TEKS INI dengan deskripsi resmi FU IYOH.
                     Untuk demo awal, gunakan deskripsi singkat dan jangan mengarang
                     informasi yang belum kamu dapatkan dari owner.
@@ -503,7 +622,7 @@
     <!-- =========================================================
          LOKASI & KONTAK
          ========================================================= -->
-    <section id="kontak" class="relative z-10 px-6 py-20 max-w-4xl mx-auto text-center border-t border-red-500/10">
+    <section id="kontak" class="relative z-10 px-6 py-20 max-w-4xl mx-auto text-center border-t border-red-500/15">
 
         <div class="glass-panel p-10 sm:p-14 rounded-[2.5rem] relative overflow-hidden">
 
@@ -511,7 +630,7 @@
                 📍 Lokasi FU IYOH Kopitiam
             </h3>
 
-            <p class="text-[#d8bfa8] mb-8 text-sm leading-relaxed max-w-md mx-auto">
+            <p class="text-[#f0d0b8] mb-8 text-sm leading-relaxed max-w-md mx-auto">
 
                 <!-- GANTI ALAMAT DENGAN ALAMAT RESMI -->
                 GANTI DENGAN ALAMAT FU IYOH
@@ -525,17 +644,15 @@
 
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
 
-                <!-- https://maps.app.goo.gl/aUaikCDw83AFGt6F6?g_st=ac-->
                 <a
                     href="GANTI_LINK_GOOGLE_MAPS"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-block bg-[#3a0a10] hover:bg-[#5a0f18] text-white border border-red-500/30 font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
+                    class="inline-block bg-[#6b1620] hover:bg-[#8a1f2b] text-white border border-red-400/35 font-bold px-8 py-4 rounded-2xl transition shadow-2xl text-xs tracking-widest uppercase">
                     📍 Buka Google Maps
                 </a>
 
 
-                
                 <!-- GANTI NOMOR WA -->
                 <a
                     href="https://wa.me/628XXXXXXXXXX?text=Halo%20FU%20IYOH%20Kopitiam%2C%20saya%20ingin%20bertanya."
@@ -555,7 +672,7 @@
     <!-- =========================================================
          FOOTER
          ========================================================= -->
-    <footer class="relative z-10 text-center py-10 border-t border-red-500/10 text-[#a8817a] text-xs bg-[#1c0407]">
+    <footer class="relative z-10 text-center py-10 border-t border-red-500/15 text-[#c99a8c] text-xs bg-[#2e070b]">
 
         <p>
             &copy; 2026 FU IYOH Kopitiam. All Rights Reserved.
@@ -584,13 +701,14 @@
             /*
              * GANTI nomor WhatsApp FU IYOH.
              * Format:
-             * 6283185954674
+             * 628xxxxxxxxxx
              * Jangan pakai +, spasi, atau tanda -
              */
-            whatsapp: "6283185954674",
+            whatsapp: "628XXXXXXXXXX",
 
             /*
-             * GANTI link Google Maps FU IYOH.
+             * Link Google Maps FU IYOH.
+             * Sudah diisi sesuai link yang kamu kasih.
              */
             googleMaps: "https://maps.app.goo.gl/aUaikCDw83AFGt6F6?g_st=ac",
 
@@ -606,52 +724,35 @@
 
     <!-- =========================================================
          MENU DINAMIS
+         DATA DI BAWAH INI CONTOH/DUMMY untuk kebutuhan demo tampilan.
+         GANTI dengan menu & harga ASLI dari owner sebelum dipakai beneran.
          ========================================================= -->
     <script>
 
         const KEY_PRODUK = "daftarProduk";
+        const VERSI_DATA = "v2-demo-contoh";
 
 
-        /*
-         * DATA DEMO
-         *
-         * PENTING:
-         * GANTI nama dan harga di bawah dengan MENU ASLI FU IYOH
-         * setelah kamu mendapat data yang benar dari owner.
-         *
-         * Untuk demo awal, jangan mengarang menu/harga.
-         */
         function seedProdukJikaKosong() {
 
-            const existing = localStorage.getItem(KEY_PRODUK);
+            const versiTersimpan = localStorage.getItem(KEY_PRODUK + "_versi");
 
-            if (!existing) {
+            if (versiTersimpan !== VERSI_DATA) {
 
+                /*
+                 * CONTOH MENU untuk demo tampilan saja.
+                 * GANTI dengan data ASLI dari owner FU IYOH.
+                 */
                 const defaultProduk = [
 
-                    {
-                        id: "fuiyoh_demo_1",
-                        name: "GANTI MENU 1",
-                        price: 0
-                    },
-
-                    {
-                        id: "fuiyoh_demo_2",
-                        name: "GANTI MENU 2",
-                        price: 0
-                    },
-
-                    {
-                        id: "fuiyoh_demo_3",
-                        name: "GANTI MENU 3",
-                        price: 0
-                    },
-
-                    {
-                        id: "fuiyoh_demo_4",
-                        name: "GANTI MENU 4",
-                        price: 0
-                    }
+                    { id: "fuiyoh_demo_1", name: "Kopi O", price: 12000 },
+                    { id: "fuiyoh_demo_2", name: "Kopi Susu", price: 15000 },
+                    { id: "fuiyoh_demo_3", name: "Roti Bakar Srikaya", price: 18000 },
+                    { id: "fuiyoh_demo_4", name: "Mie Sup Kopitiam", price: 22000 },
+                    { id: "fuiyoh_demo_5", name: "Teh Tarik", price: 13000 },
+                    { id: "fuiyoh_demo_6", name: "Nasi Lemak", price: 20000 },
+                    { id: "fuiyoh_demo_7", name: "Telur Setengah Matang", price: 8000 },
+                    { id: "fuiyoh_demo_8", name: "Kue Lapis", price: 10000 }
 
                 ];
 
@@ -659,6 +760,8 @@
                     KEY_PRODUK,
                     JSON.stringify(defaultProduk)
                 );
+
+                localStorage.setItem(KEY_PRODUK + "_versi", VERSI_DATA);
             }
         }
 
@@ -667,6 +770,26 @@
 
             return "Rp " + Number(angka).toLocaleString("id-ID");
 
+        }
+
+
+        /*
+         * Ikon per menu, dicocokkan berdasarkan kata kunci nama menu.
+         * Ini cuma buat mempercantik tampilan kartu, bukan data penting.
+         */
+        function iconUntukMenu(nama) {
+
+            const n = nama.toLowerCase();
+
+            if (n.includes("kopi")) return "☕";
+            if (n.includes("teh")) return "🍵";
+            if (n.includes("roti")) return "🍞";
+            if (n.includes("mie")) return "🍜";
+            if (n.includes("nasi")) return "🍚";
+            if (n.includes("telur")) return "🥚";
+            if (n.includes("kue")) return "🧁";
+
+            return "☕";
         }
 
 
@@ -698,7 +821,7 @@
                 select.appendChild(opt);
 
                 daftarMenu.innerHTML = `
-                    <div class="col-span-full text-center text-[#d8bfa8]">
+                    <div class="col-span-full text-center text-[#f0d0b8]">
                         Menu belum tersedia.
                     </div>
                 `;
@@ -735,8 +858,8 @@
 
                 card.innerHTML = `
 
-                    <div class="w-12 h-12 rounded-2xl bg-red-600/15 border border-red-500/20 flex items-center justify-center text-2xl mb-5">
-                        ☕
+                    <div class="w-12 h-12 rounded-2xl bg-red-500/20 border border-red-400/25 flex items-center justify-center text-2xl mb-5">
+                        ${iconUntukMenu(item.name)}
                     </div>
 
                     <h4 class="text-lg font-bold text-white">
@@ -778,56 +901,91 @@
 
     <!-- =========================================================
          GALERI DINAMIS
+
+         PAKAI_FOTO_ASLI:
+         - false = tampilkan kartu ilustrasi placeholder (kondisi sekarang)
+         - true  = coba muat file fuiyoh1.jpeg, fuiyoh2.jpeg, dst.
+                   (ganti ke true SETELAH file fotonya benar-benar ada)
          ========================================================= -->
     <script>
+
+        const PAKAI_FOTO_ASLI = false;
+
+        const labelGaleriContoh = [
+            { emoji: "☕", label: "Kopi O Panas" },
+            { emoji: "🥛", label: "Kopi Susu" },
+            { emoji: "🍞", label: "Roti Bakar Srikaya" },
+            { emoji: "🍜", label: "Mie Sup Kopitiam" },
+            { emoji: "🍵", label: "Teh Tarik" },
+            { emoji: "🥚", label: "Telur Setengah Matang" },
+            { emoji: "🏮", label: "Suasana Kopitiam" },
+            { emoji: "🧁", label: "Kue Lapis" }
+        ];
 
         function muatGaleri() {
 
             const galeri =
                 document.getElementById("galeri");
 
-            /*
-             * GANTI file foto sesuai file yang kamu punya.
-             * Contoh:
-             * fuiyoh1.jpeg
-             * fuiyoh2.jpeg
-             * dst.
-             */
-            const jumlahFoto = 8;
+            if (PAKAI_FOTO_ASLI) {
 
-            for (let i = 1; i <= jumlahFoto; i++) {
+                /*
+                 * MODE FOTO ASLI
+                 * GANTI file foto sesuai file yang kamu punya.
+                 */
+                const jumlahFoto = 8;
+
+                for (let i = 1; i <= jumlahFoto; i++) {
+
+                    const wrapper =
+                        document.createElement("div");
+
+                    wrapper.className =
+                        "glass-panel rounded-2xl overflow-hidden group shadow-xl";
+
+                    const img =
+                        document.createElement("img");
+
+                    img.src = `fuiyoh${i}.jpeg`;
+
+                    img.alt =
+                        `FU IYOH Kopitiam ${i}`;
+
+                    img.className =
+                        "w-full h-56 object-cover group-hover:scale-105 transition duration-700";
+
+                    img.onerror = function () {
+                        wrapper.style.display = "none";
+                    };
+
+                    wrapper.appendChild(img);
+
+                    galeri.appendChild(wrapper);
+
+                }
+
+                return;
+            }
+
+            /*
+             * MODE ILUSTRASI PLACEHOLDER (kondisi sekarang)
+             */
+            labelGaleriContoh.forEach((item) => {
 
                 const wrapper =
                     document.createElement("div");
 
                 wrapper.className =
-                    "glass-panel rounded-2xl overflow-hidden group shadow-xl";
+                    "glass-panel rounded-2xl overflow-hidden group shadow-xl gallery-placeholder";
 
-                const img =
-                    document.createElement("img");
-
-                img.src = `fuiyoh${i}.jpeg`;
-
-                img.alt =
-                    `FU IYOH Kopitiam ${i}`;
-
-                img.className =
-                    "w-full h-56 object-cover group-hover:scale-105 transition duration-700";
-
-                /*
-                 * Kalau file belum ada, kartu tidak membuat halaman rusak.
-                 */
-                img.onerror = function () {
-
-                    wrapper.style.display = "none";
-
-                };
-
-                wrapper.appendChild(img);
+                wrapper.innerHTML = `
+                    <span class="emoji">${item.emoji}</span>
+                    <span class="label">${escapeHtml(item.label)}</span>
+                `;
 
                 galeri.appendChild(wrapper);
 
-            }
+            });
 
         }
 
@@ -971,7 +1129,7 @@
                     (link) => {
 
                         link.href =
-                            CONFIG.googleMaps;https://maps.app.goo.gl/aUaikCDw83AFGt6F6?g_st=ac
+                            CONFIG.googleMaps;
 
                     }
                 );
